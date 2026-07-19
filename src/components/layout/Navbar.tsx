@@ -6,14 +6,14 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useLanguage, Language } from "@/i18n/context/LanguageContext";
 import { useTheme } from "@/context/ThemeContext";
-import { Menu, X, Sun, Moon, Globe, Download, AlertCircle } from "lucide-react";
+import { Menu, X, Sun, Moon, Globe, Download } from "lucide-react";
 
 export const Navbar: React.FC = () => {
   const { language, dir, t, changeLanguage, mounted: langMounted } = useLanguage();
   const { theme, toggleTheme, mounted: themeMounted } = useTheme();
   
   const [isOpen, setIsOpen] = useState(false);
-  const [showCvModal, setShowCvModal] = useState(false);
+
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const pathname = usePathname();
 
@@ -41,7 +41,7 @@ export const Navbar: React.FC = () => {
       if (e.key === "Escape") {
         setIsOpen(false);
         setLangDropdownOpen(false);
-        setShowCvModal(false);
+
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -63,10 +63,7 @@ export const Navbar: React.FC = () => {
     { code: "ar", label: "AR" },
   ];
 
-  const handleCvClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setShowCvModal(true);
-  };
+
 
   const isActive = (path: string) => {
     if (path === "/") {
@@ -162,13 +159,16 @@ export const Navbar: React.FC = () => {
             </div>
 
             {/* Download CV */}
-            <button
-              onClick={handleCvClick}
+            <a
+              href="/Eslam_Metawie_CV.pdf"
+              download="Eslam_Metawie_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-brand-fg hover:bg-brand-hover transition-all cursor-pointer font-sans"
             >
               <Download size={16} />
               <span>{t("common.cv_download")}</span>
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -208,7 +208,7 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Navigation Drawer */}
         {isOpen && (
-          <div className="fixed inset-0 top-16 z-40 bg-bg-main md:hidden animate-fade-in">
+          <div className="absolute top-full inset-x-0 z-40 h-[calc(100vh-4rem)] overflow-y-auto bg-bg-main md:hidden animate-fade-in">
             <div className="flex flex-col h-[calc(100vh-4rem)] p-6 justify-between">
               <nav className="flex flex-col gap-6" aria-label="Mobile Navigation">
                 {navLinks.map((link) => (
@@ -229,58 +229,23 @@ export const Navbar: React.FC = () => {
               
               {/* Drawer Footer Action */}
               <div className="mb-8">
-                <button
-                  onClick={(e) => {
-                    setIsOpen(false);
-                    handleCvClick(e);
-                  }}
+                <a
+                  href="/Eslam_Metawie_CV.pdf"
+                  download="Eslam_Metawie_CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
                   className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand py-3 text-base font-semibold text-brand-fg hover:bg-brand-hover transition-all"
                 >
                   <Download size={18} />
                   <span>{t("common.cv_download")}</span>
-                </button>
+                </a>
               </div>
             </div>
           </div>
         )}
       </header>
 
-      {/* CV Placeholder Modal */}
-      {showCvModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 backdrop-blur-sm animate-fade-in">
-          <div 
-            className="w-full max-w-md rounded-xl border border-border-main bg-bg-card p-6 shadow-2xl animate-slide-up"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
-          >
-            <div className="flex items-center gap-3 text-brand mb-4">
-              <AlertCircle size={24} />
-              <h3 id="modal-title" className="text-lg font-bold text-fg-main">
-                {t("common.cv_download")}
-              </h3>
-            </div>
-            <p className="text-sm text-text-muted mb-6 leading-relaxed">
-              {t("common.cv_not_available")}
-            </p>
-            <div className="flex justify-end gap-3">
-              <Link
-                href="/contact"
-                onClick={() => setShowCvModal(false)}
-                className="rounded-lg bg-brand px-4 py-2 text-xs font-semibold text-brand-fg hover:bg-brand-hover transition-all"
-              >
-                {t("nav.contact")}
-              </Link>
-              <button
-                onClick={() => setShowCvModal(false)}
-                className="rounded-lg border border-border-main bg-transparent px-4 py-2 text-xs font-semibold text-text-muted hover:text-fg-main transition-all cursor-pointer"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 };
