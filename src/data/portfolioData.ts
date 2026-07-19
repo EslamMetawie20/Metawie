@@ -25,15 +25,49 @@ export interface SkillGroup {
   skills: Skill[];
 }
 
-export interface TimelineEntry {
+export interface ExperienceEntry {
   id: string;
   roleKey: string;
   companyKey: string;
-  locationKey: string;
-  periodKey?: string;
+  locationKey?: string;
+  periodKey: string;
   descriptionKey: string;
   tasksKeys: string[];
-  isEducation?: boolean;
+  technologies: string[];
+  current?: boolean;
+}
+
+export interface EducationEntry {
+  id: string;
+  degreeKey: string;
+  schoolKey: string;
+  locationKey: string;
+  periodKey: string;
+  descriptionKey: string;
+  badgeKey?: string;
+  focusKeys?: string[];
+  current?: boolean;
+}
+
+export interface ExpertiseCategory {
+  id: string;
+  titleKey: string;
+  skills: string[];
+}
+
+export interface LanguageEntry {
+  id: string;
+  nameKey: string;
+  levelKey: string;
+  certKey?: string;
+  /** Filled segments out of 6 (CEFR A1–C2) */
+  level: number;
+}
+
+export interface InterestEntry {
+  id: string;
+  nameKey: string;
+  descKey: string;
 }
 
 export const projectsData: Project[] = [
@@ -182,30 +216,152 @@ export const skillsData: SkillGroup[] = [
   }
 ];
 
-export const timelineData: TimelineEntry[] = [
+export const experienceData: ExperienceEntry[] = [
   {
     id: "ggu-software",
-    roleKey: "experience.ggu_role",
-    companyKey: "experience.ggu_company",
-    locationKey: "experience.ggu_location",
-    descriptionKey: "experience.ggu_p1",
+    roleKey: "about.ggu_role",
+    companyKey: "about.ggu_company",
+    locationKey: "about.ggu_location",
+    periodKey: "about.ggu_period",
+    descriptionKey: "about.ggu_desc",
     tasksKeys: [
-      "experience.ggu_task_1",
-      "experience.ggu_task_2",
-      "experience.ggu_task_3",
-      "experience.ggu_task_4",
-      "experience.ggu_task_5"
+      "about.ggu_task_1",
+      "about.ggu_task_2",
+      "about.ggu_task_3",
+      "about.ggu_task_4",
+      "about.ggu_task_5",
+      "about.ggu_task_6"
+    ],
+    technologies: [
+      "Jenkins",
+      "Chocolatey",
+      "Docker",
+      "Kubernetes",
+      "Git",
+      "GitHub",
+      "CI/CD",
+      "Shell Scripting",
+      "Python"
+    ],
+    current: true
+  },
+  {
+    id: "dos-software",
+    roleKey: "about.dos_role",
+    companyKey: "about.dos_company",
+    periodKey: "about.dos_period",
+    descriptionKey: "about.dos_desc",
+    tasksKeys: [
+      "about.dos_task_1",
+      "about.dos_task_2",
+      "about.dos_task_3"
+    ],
+    technologies: [
+      "Spring Boot",
+      "React",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "CI/CD",
+      "Bitbucket",
+      "Podman",
+      "Figma"
     ]
   },
   {
-    id: "ostfalia",
-    roleKey: "about.edu_degree",
-    companyKey: "about.edu_uni",
-    locationKey: "common.germany",
-    descriptionKey: "about.edu_desc",
-    tasksKeys: [
-      "about.edu_stage"
-    ],
-    isEducation: true
+    id: "skbs",
+    roleKey: "about.skbs_role",
+    companyKey: "about.skbs_company",
+    periodKey: "about.skbs_period",
+    descriptionKey: "about.skbs_desc",
+    tasksKeys: [],
+    technologies: ["Microsoft Office", "Outlook"]
   }
+];
+
+export const educationData: EducationEntry[] = [
+  {
+    id: "ostfalia",
+    degreeKey: "about.ostfalia_degree",
+    schoolKey: "about.ostfalia_school",
+    locationKey: "about.ostfalia_location",
+    periodKey: "about.ostfalia_period",
+    descriptionKey: "about.ostfalia_desc",
+    badgeKey: "about.ostfalia_stage",
+    focusKeys: [
+      "about.ostfalia_focus_1",
+      "about.ostfalia_focus_2",
+      "about.ostfalia_focus_3",
+      "about.ostfalia_focus_4",
+      "about.ostfalia_focus_5"
+    ],
+    current: true
+  },
+  {
+    id: "mansoura",
+    degreeKey: "about.mansoura_degree",
+    schoolKey: "about.mansoura_school",
+    locationKey: "about.mansoura_location",
+    periodKey: "about.mansoura_period",
+    descriptionKey: "about.mansoura_desc"
+  }
+];
+
+export const expertiseData: ExpertiseCategory[] = [
+  {
+    id: "backend",
+    titleKey: "about.cat_backend",
+    skills: ["Java", "Spring Boot", "Python", "Jakarta EE", "REST APIs", "JavaFX", "Vaadin"]
+  },
+  {
+    id: "frontend",
+    titleKey: "about.cat_frontend",
+    skills: ["React", "JavaScript", "HTML", "CSS"]
+  },
+  {
+    id: "devops",
+    titleKey: "about.cat_devops",
+    skills: [
+      "Jenkins",
+      "Git",
+      "GitHub",
+      "GitLab",
+      "Docker",
+      "Kubernetes",
+      "Podman",
+      "Linux",
+      "Shell Scripting",
+      "CI/CD",
+      "Chocolatey",
+      "Release Management",
+      "Automation"
+    ]
+  },
+  {
+    id: "databases",
+    titleKey: "about.cat_databases",
+    skills: ["MySQL", "SQL", "Data Modeling"]
+  },
+  {
+    id: "pm",
+    titleKey: "about.cat_pm",
+    skills: ["Scrum", "Jira", "Confluence"]
+  },
+  {
+    id: "tools",
+    titleKey: "about.cat_tools",
+    skills: ["Bitbucket", "Figma", "Microsoft Office"]
+  }
+];
+
+export const languagesData: LanguageEntry[] = [
+  { id: "de", nameKey: "about.lang_de", levelKey: "about.lang_de_level", certKey: "about.lang_de_cert", level: 5 },
+  { id: "en", nameKey: "about.lang_en", levelKey: "about.lang_en_level", certKey: "about.lang_en_cert", level: 4 },
+  { id: "ar", nameKey: "about.lang_ar", levelKey: "about.lang_ar_level", level: 6 }
+];
+
+export const interestsData: InterestEntry[] = [
+  { id: "travel", nameKey: "about.interest_travel", descKey: "about.interest_travel_desc" },
+  { id: "fishing", nameKey: "about.interest_fishing", descKey: "about.interest_fishing_desc" },
+  { id: "astronomy", nameKey: "about.interest_astronomy", descKey: "about.interest_astronomy_desc" }
 ];

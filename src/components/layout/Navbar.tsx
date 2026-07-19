@@ -6,7 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useLanguage, Language } from "@/i18n/context/LanguageContext";
 import { useTheme } from "@/context/ThemeContext";
-import { Menu, X, Sun, Moon, Globe, Download } from "lucide-react";
+import { Menu, X, Sun, Moon, Download } from "lucide-react";
 
 export const Navbar: React.FC = () => {
   const { language, dir, t, changeLanguage, mounted: langMounted } = useLanguage();
@@ -51,7 +51,6 @@ export const Navbar: React.FC = () => {
   const navLinks = [
     { href: "/", label: t("nav.home") },
     { href: "/about", label: t("nav.about") },
-    { href: "/experience", label: t("nav.experience") },
     { href: "/projects", label: t("nav.projects") },
     { href: "/skills", label: t("nav.skills") },
     { href: "/contact", label: t("nav.contact") },
