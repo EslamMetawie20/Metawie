@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useLanguage } from "@/i18n/context/LanguageContext";
 import { projectsData } from "@/data/portfolioData";
 import { PipelineVisual } from "@/components/ui/PipelineVisual";
+import { CodePortrait } from "@/components/ui/CodePortrait";
 import { ArrowRight, ExternalLink, Code2, GitBranch, Server } from "lucide-react";
 import { GithubIcon as Github, LinkedinIcon as Linkedin } from "@/components/ui/SocialIcons";
 
@@ -84,44 +85,9 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Profile Placeholder Visual */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="relative h-72 w-72 sm:h-80 sm:w-80 rounded-2xl border border-border-main bg-bg-card p-4 shadow-xl select-none group">
-                {/* Tech dots decoration */}
-                <div className="absolute top-2 left-2 flex gap-1">
-                  <span className="h-1.5 w-1.5 rounded-full bg-red-400" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-yellow-400" />
-                  <span className="h-1.5 w-1.5 rounded-full bg-green-400" />
-                </div>
-                <div className="absolute top-2 right-4 font-mono text-[9px] text-text-muted">
-                  MET_AVATAR_v1.0
-                </div>
-
-                {/* Profile Placeholder SVG */}
-                <div className="flex h-full w-full flex-col items-center justify-center rounded-xl border border-border-main/60 bg-bg-main/40 p-4 transition-all duration-300 group-hover:border-brand">
-                  <svg
-                    className="h-28 w-28 text-text-muted transition-colors duration-300 group-hover:text-brand"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                  <div className="mt-4 font-sans font-black text-lg tracking-wider text-fg-main uppercase">
-                    {t("common.full_name")}
-                  </div>
-                  <div className="mt-1 font-mono text-[10px] text-text-muted text-center max-w-[200px]">
-                    {t("common.status_current")}
-                  </div>
-                </div>
-              </div>
+            {/* Right Profile Code Portrait */}
+            <div className="lg:col-span-5 flex justify-center w-full max-w-md lg:max-w-none">
+              <CodePortrait />
             </div>
 
           </div>
