@@ -1,0 +1,217 @@
+{
+  "common": {
+    "brand_name": "METAWIE",
+    "full_name": "Eslam Metawie",
+    "title_short": "Software & DevOps Engineer",
+    "germany": "Germany",
+    "cv_download": "Download CV",
+    "cv_not_available": "CV file is currently being updated. Please contact me directly using the contact form!",
+    "status_current": "Fifth-semester student at Ostfalia University & Software / DevOps Engineer at GGU-Software",
+    "back_to_home": "Back to Home",
+    "loading": "Loading..."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Software Engineer & DevOps Engineer",
+    "subtitle": "Building Reliable Software, Automated Delivery Pipelines, and Modern Digital Products",
+    "description": "I combine Computer Science studies at Ostfalia University of Applied Sciences with professional software engineering experience at GGU-Software. I specialize in development, CI/CD pipelines, automated testing, containerized environments, and Azure cloud infrastructure.",
+    "explore_cta": "Explore My Work",
+    "contact_cta": "Contact Me"
+  },
+  "home": {
+    "intro_title": "Bridging Software & Automation",
+    "intro_text_1": "I believe that high-quality software engineering doesn't stop at compiling code. It extends all the way to how applications are tested, packaged, deployed, updated, and monitored in production. My work revolves around making release cycles reliable and repeatable, removing manual barriers, and maintaining robust codebase standards.",
+    "intro_text_2": "Through my studies and GGU-Software work, I balance core academic computer science with immediate hands-on engineering challenges. Whether automating Windows desktop installer packaging or deploying full-stack web platforms, I focus on software system reliability.",
+    "focus_title": "Core Engineering Focus",
+    "focus_sw": "Software Development",
+    "focus_sw_desc": "Creating type-safe backends, RESTful interfaces, and clean responsive frontends with React and Java/Spring Boot.",
+    "focus_devops": "DevOps & Pipelines",
+    "focus_devops_desc": "Building automated build, test, and release flows using GitHub Actions, Tekton, and custom scripting.",
+    "focus_infra": "Cloud & Operations",
+    "focus_infra_desc": "Managing Docker-based microservices, Azure virtual environments, and monitoring system statuses.",
+    "projects_heading": "Featured Engineering Projects",
+    "projects_sub": "A selection of SaaS platforms, responsive interfaces, and pipeline configurations.",
+    "projects_view_all": "View All Projects",
+    "cta_github_title": "Explore the Source Code",
+    "cta_github_desc": "Many of my configurations, academic tasks, and UI experiments are open source on GitHub. Take a look at the code quality and structures.",
+    "cta_github_button": "Follow on GitHub",
+    "cta_linkedin_title": "Professional Network",
+    "cta_linkedin_desc": "Let's connect on LinkedIn. I am always open to exchanging ideas about software architecture, DevOps pipelines, and digital products.",
+    "cta_linkedin_button": "Connect on LinkedIn"
+  },
+  "about": {
+    "page_title": "About Eslam Metawie",
+    "page_subtitle": "My journey, engineering philosophy, and academic background.",
+    "bio_heading": "Engineering Philosophy",
+    "bio_p1": "I am a Computer Science student currently in my fifth semester at Ostfalia University of Applied Sciences, and a working Software / DevOps Engineer at GGU-Software in Germany. My passion is writing clean, predictable code and automating the pipelines that run, test, and deploy it.",
+    "bio_p2": "I don't separate software construction from deployment automation. I believe developers should share responsibility for how software is delivered and updated. Manual release tasks represent potential failure points; my goal is to script, containerize, and automate those workflows to minimize errors and build trust in delivery pipelines.",
+    "bio_p3": "Outside my university classes, I actively work on real product development. From building multi-tenant SaaS environments in React and Spring Boot to managing packages using Chocolatey and containerizing development setups, I am dedicated to modern DevOps cultures.",
+    "education_heading": "Academic Background",
+    "edu_degree": "Bachelor of Science in Computer Science",
+    "edu_uni": "Ostfalia University of Applied Sciences (Ostfalia Hochschule für angewandte Wissenschaften)",
+    "edu_stage": "Currently in the 5th semester (Bachelor Informatik)",
+    "edu_desc": "Focusing on fundamental software engineering, algorithms, databases, networking, and distributed systems. Academic projects require collaborative development, clean coding practices, and test-driven designs."
+  },
+  "experience": {
+    "page_title": "Professional Timeline",
+    "page_subtitle": "My work experience, university progression, and core engineering tasks.",
+    "ggu_role": "Software / DevOps Engineer",
+    "ggu_company": "GGU-Software",
+    "ggu_location": "Germany",
+    "ggu_p1": "At GGU-Software, I support the reliability and release execution of applications. My responsibilities focus on automate-first workflows, cloud-managed servers, and desktop distribution systems.",
+    "ggu_task_1": "Maintaining and optimizing automated CI/CD pipelines to run test suites and build scripts.",
+    "ggu_task_2": "Orchestrating deployment and release pipelines for company applications, minimizing manual steps.",
+    "ggu_task_3": "Managing GGU desktop application packaging and publishing via Chocolatey package managers.",
+    "ggu_task_4": "Supporting Azure-based server infrastructures and Docker container environments.",
+    "ggu_task_5": "Investigating build breaks, script failures, and deployment issues to guarantee delivery uptime.",
+    "edu_title": "Ostfalia Computer Science Student",
+    "edu_details": " ostfalia University of Applied Sciences — 5th Semester"
+  },
+  "projects": {
+    "page_title": "Engineering Projects",
+    "page_subtitle": "Real digital products, corporate designs, and DevOps practice pipelines.",
+    "filter_all": "All",
+    "filter_saas": "SaaS / Web Apps",
+    "filter_devops": "DevOps / Pipelines",
+    "role_label": "Role",
+    "status_label": "Status",
+    "tech_label": "Technologies",
+    "live_btn": "Live Site",
+    "code_btn": "View Code",
+    "details_btn": "View Details",
+    "more_projects_title": "Other Repositories",
+    "more_projects_desc": "For more utility tools, academic task submissions, and scripting challenges, check out my active repositories directly on GitHub.",
+    "darsio": {
+      "name": "Darsio",
+      "category": "SaaS Platform",
+      "short": "An all-in-one teaching-management platform for private teachers and learning centers.",
+      "role": "Creator & Full-Stack Developer",
+      "status": "Production Release / Active Development",
+      "desc": "Darsio is a comprehensive learning and administrative management platform built to simplify workflows for private tutors and academies. It centralizes student profiles, class attendance sheets, payment states, assignments, and parent progress updates into a singular dashboard. Built with a scalable multi-tenant architecture and strict authentication protocols.",
+      "features": [
+        "Interactive dashboards for teachers, students, and parents",
+        "Student attendance tracking and course material distributions",
+        "Assignments upload portal with automated grading tools",
+        "Payment status logs and reminder alerts",
+        "Token-based secure client access and multilingual translations",
+        "Multi-tenant data isolation and role-based access control (RBAC)"
+      ]
+    },
+    "bedaya": {
+      "name": "BEDAYA",
+      "category": "Corporate Website",
+      "short": "A bilingual architecture and construction corporate website with fluid RTL/LTR design.",
+      "role": "Web Designer & Frontend Developer",
+      "status": "Completed / Hosted on Cloudflare Pages",
+      "desc": "BEDAYA represents a responsive, modern corporate web showcase developed for BEDAYA Constructions & Development. The platform exhibits commercial and residential construction projects using a clean grid interface, supporting instant translation switching between English (LTR) and Arabic (RTL).",
+      "features": [
+        "High-performance static hosting on Cloudflare Pages",
+        "Dynamic content translation switching without layout shifts",
+        "RTL-aware grid and typographic hierarchy for Arabic readers",
+        "Interactive architectural galleries showing project details",
+        "Accessibility-vetted layouts with optimized media files"
+      ]
+    },
+    "cafe": {
+      "name": "Café Zeitlos",
+      "category": "Business Frontend",
+      "short": "A clean hospitality website displaying menu lists, galleries, and visitor info.",
+      "role": "Frontend Developer",
+      "status": "Completed / Hosted on GitHub Pages",
+      "desc": "A frontend digital menu and gallery website tailored for Café Zeitlos, a local dining spot in Braunschweig, Germany. Designed to introduce the café's story, display dietary menus (featuring halal items), and present visitor location instructions in a modern responsive layout.",
+      "features": [
+        "Fluid CSS grids and custom theme variables",
+        "Interactive, categorized food and beverage menus",
+        "Dynamic layout animations and visual hover states",
+        "SEO metadata optimization for local searches in Braunschweig",
+        "Multilingual ready structure"
+      ]
+    },
+    "cicd": {
+      "name": "Intro to CI/CD Practice Code",
+      "category": "DevOps practice project",
+      "short": "An educational project exploring automated testing, Tekton, and container deployment workflows.",
+      "role": "DevOps Learner & Pipeline Configurer",
+      "status": "Educational Sandbox",
+      "desc": "A pipeline engineering sandbox created as a fork of IBM Developer Skills Network's Introduction to CI/CD course codebase. This repository was used to practice and execute cloud-native automation setups, configuring triggers, container image processes, and deployment tasks.",
+      "attribution": "Forked from IBM Skills Network. Original course instruction by John Rofrano (Senior Technical Staff Member and DevOps Champion at IBM Research).",
+      "features": [
+        "Configuring custom GitHub Actions pipelines with trigger hooks",
+        "Integrating Tekton CD catalog resources for modular pipelines",
+        "Automating unit test executions on code check-ins",
+        "Building container images and simulating Kubernetes target updates",
+        "Setting up testing dependencies inside Python web apps"
+      ]
+    }
+  },
+  "skills": {
+    "page_title": "Skills Matrix",
+    "page_subtitle": "Structured technology stack categorized by usage context rather than arbitrary ratings.",
+    "cat_development": "Software Development",
+    "cat_devops": "DevOps & Delivery Automation",
+    "cat_cloud": "Cloud & Infrastructure",
+    "cat_practices": "Engineering Practices",
+    "level_professional": "Professional Experience",
+    "level_project": "Project Experience",
+    "level_academic": "Academic Experience",
+    "level_developing": "Currently Developing"
+  },
+  "contact": {
+    "page_title": "Get in Touch",
+    "page_subtitle": "Let's collaborate on software engineering, pipeline setups, or modern products.",
+    "info_title": "Availability & Location",
+    "location_label": "Location",
+    "status_label": "Status",
+    "status_value": "Open to professional discussion and collaborative projects",
+    "form_name": "Full Name",
+    "form_email": "Email Address",
+    "form_subject": "Subject",
+    "form_message": "Message Content",
+    "form_consent": "I agree that my submitted data is processed in accordance with the Privacy Policy.",
+    "form_submit": "Send Message",
+    "form_sending": "Sending Message...",
+    "validation_required": "This field is required.",
+    "validation_email": "Please enter a valid email address.",
+    "validation_consent": "You must agree to the privacy policy to continue.",
+    "success_title": "Message Sent!",
+    "success_message": "Thank you for reaching out, Eslam will respond as soon as possible.",
+    "error_title": "Send Failed",
+    "error_message": "An error occurred while sending your message. Please try again later or email directly."
+  },
+  "privacy": {
+    "page_title": "Privacy Policy",
+    "heading_data": "1. Data Collection",
+    "body_data": "This website operates primarily as a static showcase. It does not actively track cookies, collect analytics scripts, or gather personally identifiable information unless you explicitly fill out the Contact Form. Form submissions are processed securely and only used to respond to your specific inquiries.",
+    "heading_contact": "2. Contact Form Submissions",
+    "body_contact": "Information sent via the contact form (name, email, subject, message) is forwarded to the designated site email for communication purposes. This data is never shared with third parties or sold for commercial objectives.",
+    "heading_rights": "3. Your Rights",
+    "body_rights": "You maintain the right to ask for a copy of any personal data you have submitted to us, or request its deletion at any time by reaching out via the contact form."
+  },
+  "impressum": {
+    "page_title": "Legal Notice / Impressum",
+    "heading_operator": "Operator of the Website",
+    "body_operator": "Eslam Metawie\n Ostfalia University / GGU-Software\n Germany",
+    "heading_contact": "Contact Details",
+    "body_contact": "Email: [Please contact via form]\n Portfolio Brand: METAWIE",
+    "heading_disclaimer": "Disclaimer for Links",
+    "body_disclaimer": "This portfolio contains links to external websites (GitHub, LinkedIn, live projects). We have no control over the content or security of these external URLs, and cannot assume liability for third-party pages."
+  },
+  "not_found": {
+    "title": "404",
+    "heading": "Page Not Found",
+    "description": "The route you are trying to visit does not exist or has been relocated.",
+    "btn": "Return to Dashboard"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "impressum": "Legal Notice"
+  }
+}

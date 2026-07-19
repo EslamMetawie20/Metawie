@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8f9fa;
+  --foreground: #121314;
+  --card: #ffffff;
+  --card-foreground: #121314;
+  --border: #e4e7eb;
+  --muted: #64748b;
+  --muted-foreground: #475569;
+  --brand: #1b49e0;
+  --brand-hover: #1238b3;
+  --grid-color: rgba(27, 73, 224, 0.04);
+  --success: #10b981;
+  --selection-bg: rgba(27, 73, 224, 0.1);
+  --selection-fg: #1b49e0;
+}
+
+.dark {
+  --background: #0d0f12;
+  --foreground: #f3f4f6;
+  --card: #14181d;
+  --card-foreground: #f3f4f6;
+  --border: #1f262f;
+  --muted: #9ca3af;
+  --muted-foreground: #d1d5db;
+  --brand: #3b82f6;
+  --brand-hover: #60a5fa;
+  --grid-color: rgba(59, 130, 246, 0.04);
+  --success: #34d399;
+  --selection-bg: rgba(59, 130, 246, 0.2);
+  --selection-fg: #ffffff;
+}
+
+@theme {
+  --color-bg-main: var(--background);
+  --color-fg-main: var(--foreground);
+  --color-bg-card: var(--card);
+  --color-fg-card: var(--card-foreground);
+  --color-border-main: var(--border);
+  --color-text-muted: var(--muted);
+  --color-text-muted-fg: var(--muted-foreground);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-grid: var(--grid-color);
+  --color-success: var(--success);
+  
+  --font-sans: var(--font-inter), var(--font-ibm-arabic), sans-serif;
+  
+  --animate-fade-in: fade-in 0.3s ease-out;
+  --animate-slide-up: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slide-up {
+    from { transform: translateY(12px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+}
+
+/* Custom baseline styling */
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dotted grid engineering style */
+.bg-grid-pattern {
+  background-size: 24px 24px;
+  background-image: radial-gradient(circle, var(--grid-color) 1.2px, transparent 1.2px);
+}
+
+/* Clean keyboard focus indicator */
+*:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* RTL Specific Tweaks */
+[dir="rtl"] {
+  font-feature-settings: "cv01", "ss01", "ss02";
+}
+
+/* Utility for card hover engineering aesthetic */
+.tech-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.tech-card-hover:hover {
+  transform: translateY(-2px);
+  border-color: var(--brand);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+.dark .tech-card-hover:hover {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
