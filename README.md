@@ -1,5 +1,20 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Deployment (Cloudflare Pages)
+
+The site is a fully static export (`output: "export"` in `next.config.ts`). `next build` writes the deployable site to `out/`.
+
+Cloudflare Pages settings:
+
+| Setting                | Value                            |
+| ---------------------- | -------------------------------- |
+| Framework preset       | Next.js (Static HTML Export)     |
+| Build command          | `npm run build`                  |
+| Build output directory | `out`                            |
+| Root directory         | _(leave empty — repo root)_      |
+
+Do **not** use `@cloudflare/next-on-pages` or Wrangler — no SSR, API routes, or server runtime is required. The `public/_redirects` file handles the permanent `/experience` → `/about` redirect at the CDN level.
+
 ## Getting Started
 
 First, run the development server:
