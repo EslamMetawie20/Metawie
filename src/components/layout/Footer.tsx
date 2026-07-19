@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useLanguage } from "@/i18n/context/LanguageContext";
 import { GithubIcon as Github, LinkedinIcon as Linkedin } from "@/components/ui/SocialIcons";
 
@@ -16,9 +17,13 @@ export const Footer: React.FC = () => {
           {/* Brand & Rights */}
           <div className="flex flex-col items-center md:items-start gap-1">
             <div className="flex items-center gap-2 font-sans font-extrabold uppercase tracking-widest text-base text-fg-main select-none">
-              <span className="flex h-6 w-6 items-center justify-center rounded border border-brand text-[10px] font-black text-brand">
-                EM
-              </span>
+              <Image
+                src="/logo.png"
+                alt="METAWIE Logo"
+                width={24}
+                height={24}
+                className="h-6 w-6 object-contain dark:invert"
+              />
               <span>METAWIE</span>
             </div>
             <p className="text-xs text-text-muted mt-1 text-center md:text-left">

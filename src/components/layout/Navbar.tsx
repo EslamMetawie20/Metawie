@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useLanguage, Language } from "@/i18n/context/LanguageContext";
 import { useTheme } from "@/context/ThemeContext";
@@ -82,15 +83,17 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center">
             <Link 
               href="/" 
-              className="flex items-center gap-2 font-mono text-xl font-bold tracking-wider text-brand select-none"
+              className="flex items-center select-none"
               aria-label="METAWIE Home"
             >
-              <span className="flex h-8 w-8 items-center justify-center rounded border-2 border-brand font-sans text-sm font-black">
-                EM
-              </span>
-              <span className="hidden sm:inline font-sans font-extrabold uppercase text-fg-main tracking-widest text-lg">
-                METAWIE
-              </span>
+              <Image
+                src="/logo-with-name.png"
+                alt="METAWIE Logo"
+                width={122}
+                height={36}
+                className="h-9 w-auto object-contain dark:invert"
+                priority
+              />
             </Link>
           </div>
 
