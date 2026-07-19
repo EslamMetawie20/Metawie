@@ -87,8 +87,34 @@ export default function Contact() {
     // Honeypot: hidden checkbox that only bots fill in (Web3Forms discards those)
     const botcheck = new FormData(e.currentTarget).get("botcheck") === "on";
 
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      console.error(
+        "Web3Forms: NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is not defined in this build. " +
+          "Set it in .env.local (local) or Cloudflare Pages environment variables, then rebuild."
+      );
+      setSubmitStatus("error");
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus("idle");
+
+    const payload = {
+      access_key: accessKey,
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      from_name: "METAWIE Portfolio",
+      botcheck,
+    };
+
+    // Never log the full access key
+    console.log("Web3Forms request:", {
+      ...payload,
+      access_key: `${accessKey.slice(0, 4)}…${accessKey.slice(-4)}`,
+    });
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -97,20 +123,16 @@ export default function Contact() {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          from_name: "METAWIE Portfolio",
-          botcheck,
-        }),
+        body: JSON.stringify(payload),
       });
 
-      const result = await response.json();
-      if (!response.ok || !result.success) {
-        throw new Error(result.message || "Submission failed");
+      const result = await response.json().catch(() => null);
+      console.log("Web3Forms response:", response.status, result);
+
+      if (!response.ok || result?.success !== true) {
+        throw new Error(
+          `HTTP ${response.status}: ${result?.message ?? "Submission failed"}`
+        );
       }
 
       setSubmitStatus("success");
@@ -122,7 +144,7 @@ export default function Contact() {
         consent: false,
       });
     } catch (err) {
-      console.error("Submission error:", err);
+      console.error("Web3Forms submission error:", err);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
