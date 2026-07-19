@@ -45,7 +45,7 @@ export default function Skills() {
       case "academic":
         return "bg-amber-500/5 border-amber-500/20 text-amber-600 dark:text-amber-400";
       case "developing":
-        return "bg-blue-500/5 border-blue-500/20 text-blue-600 dark:text-blue-400";
+        return "bg-text-muted/5 border-border-main text-text-muted";
       default:
         return "bg-bg-main border-border-main text-text-muted";
     }

@@ -1,34 +1,36 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8f9fa;
-  --foreground: #121314;
+  /* User Palette - Light Mode */
+  --background: #f8f9fa; /* Bright Snow */
+  --foreground: #212529; /* Shadow Grey */
   --card: #ffffff;
-  --card-foreground: #121314;
-  --border: #e4e7eb;
-  --muted: #64748b;
-  --muted-foreground: #475569;
-  --brand: #1b49e0;
-  --brand-hover: #1238b3;
-  --grid-color: rgba(27, 73, 224, 0.04);
+  --card-foreground: #212529;
+  --border: #dee2e6; /* Alabaster Grey */
+  --muted: #6c757d; /* Slate Grey */
+  --muted-foreground: #495057; /* Iron Grey */
+  --brand: #212529; /* Shadow Grey */
+  --brand-hover: #495057; /* Iron Grey */
+  --grid-color: rgba(108, 117, 125, 0.04); /* Slate Grey grid lines */
   --success: #10b981;
-  --selection-bg: rgba(27, 73, 224, 0.1);
-  --selection-fg: #1b49e0;
+  --selection-bg: rgba(33, 37, 41, 0.1);
+  --selection-fg: #212529;
 }
 
 .dark {
-  --background: #0d0f12;
-  --foreground: #f3f4f6;
-  --card: #14181d;
-  --card-foreground: #f3f4f6;
-  --border: #1f262f;
-  --muted: #9ca3af;
-  --muted-foreground: #d1d5db;
-  --brand: #3b82f6;
-  --brand-hover: #60a5fa;
-  --grid-color: rgba(59, 130, 246, 0.04);
+  /* User Palette - Dark Mode */
+  --background: #212529; /* Shadow Grey */
+  --foreground: #f8f9fa; /* Bright Snow */
+  --card: #343a40; /* Gunmetal */
+  --card-foreground: #f8f9fa;
+  --border: #495057; /* Iron Grey */
+  --muted: #adb5bd; /* Pale Slate */
+  --muted-foreground: #dee2e6; /* Alabaster Grey */
+  --brand: #f8f9fa; /* Bright Snow */
+  --brand-hover: #dee2e6; /* Alabaster Grey */
+  --grid-color: rgba(233, 236, 239, 0.04); /* Platinum grid lines */
   --success: #34d399;
-  --selection-bg: rgba(59, 130, 246, 0.2);
+  --selection-bg: rgba(248, 249, 250, 0.15);
   --selection-fg: #ffffff;
 }
 

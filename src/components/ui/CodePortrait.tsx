@@ -61,8 +61,8 @@ export const CodePortrait: React.FC = () => {
         return {
           opacity: 1,
           fontWeight: "700" as const,
-          color: isPulsing ? "#60a5fa" : "#3b82f6", // Pulse to lighter blue
-          textShadow: "0 0 4px rgba(59, 130, 246, 0.3)"
+          color: isPulsing ? "#f8f9fa" : "#dee2e6", // Pulse to Bright Snow
+          textShadow: "0 0 4px rgba(248, 249, 250, 0.4)"
         };
       } else if (brightness > 0.5) {
         return {
@@ -92,8 +92,8 @@ export const CodePortrait: React.FC = () => {
         return {
           opacity: 1,
           fontWeight: "700" as const,
-          color: isPulsing ? "#1238b3" : "#1b49e0", // Pulse to darker blue
-          textShadow: "0 0 2px rgba(27, 73, 224, 0.1)"
+          color: isPulsing ? "#212529" : "#495057", // Pulse to Shadow Grey
+          textShadow: "0 0 2px rgba(33, 37, 41, 0.15)"
         };
       } else if (brightness < 0.5) {
         return {
