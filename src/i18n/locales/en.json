@@ -8,7 +8,20 @@
     "cv_not_available": "CV file is currently being updated. Please contact me directly using the contact form!",
     "status_current": "Fifth-semester student at Ostfalia University & Software / DevOps Engineer at GGU-Software",
     "back_to_home": "Back to Home",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "email_label": "Email",
+    "portrait_alt": "Generative code portrait of Eslam Metawie"
+  },
+  "a11y": {
+    "theme_dark": "Switch to dark mode",
+    "theme_light": "Switch to light mode",
+    "change_language": "Change language",
+    "toggle_menu": "Toggle navigation menu",
+    "home_link": "METAWIE Home",
+    "desktop_nav": "Main navigation",
+    "mobile_nav": "Mobile navigation",
+    "github_profile": "GitHub Profile",
+    "linkedin_profile": "LinkedIn Profile"
   },
   "nav": {
     "home": "Home",
@@ -44,7 +57,26 @@
     "cta_github_button": "Follow on GitHub",
     "cta_linkedin_title": "Professional Network",
     "cta_linkedin_desc": "Let's connect on LinkedIn. I am always open to exchanging ideas about software architecture, DevOps pipelines, and digital products.",
-    "cta_linkedin_button": "Connect on LinkedIn"
+    "cta_linkedin_button": "Connect on LinkedIn",
+    "intro_eyebrow": "// Executive Introduction",
+    "pipeline_eyebrow": "// Automation Pipelines",
+    "pipeline_title": "Reliable Delivery Infrastructure",
+    "pipeline_desc": "Release cycles should never rely on memory or repetitive manual sequences. I build pipelines that compile code, execute checks, package installers, and trigger staging updates in a structured, observable path.",
+    "projects_eyebrow": "// Portfolio Excerpts",
+    "more_tech": "more",
+    "banner_title": "Need reliable software pipelines or custom development?",
+    "banner_desc": "Let's build a repeatable and robust release infrastructure. Open to exchange ideas and collaborate."
+  },
+  "pipeline": {
+    "flow_title": "// Automated Delivery Flow",
+    "stable": "Pipeline Stable",
+    "desc_code": "Clean code practices, Git, Spring Boot & React development",
+    "desc_build": "Automated compiler tasks, project packaging, MSBuild & Gradle",
+    "desc_test": "JUnit, automated integration tests, coverage verification",
+    "desc_package": "Docker container creations & Chocolatey package publishing",
+    "desc_deploy": "Azure virtual servers, environment monitoring, IIS/Kubernetes updates",
+    "phase_label": "{label} Phase:",
+    "hover_hint": "Hover over a node to inspect the automation lifecycle"
   },
   "about": {
     "page_title": "About Eslam Metawie",
@@ -57,7 +89,18 @@
     "edu_degree": "Bachelor of Science in Computer Science",
     "edu_uni": "Ostfalia University of Applied Sciences (Ostfalia Hochschule für angewandte Wissenschaften)",
     "edu_stage": "Currently in the 5th semester (Bachelor Informatik)",
-    "edu_desc": "Focusing on fundamental software engineering, algorithms, databases, networking, and distributed systems. Academic projects require collaborative development, clean coding practices, and test-driven designs."
+    "edu_desc": "Focusing on fundamental software engineering, algorithms, databases, networking, and distributed systems. Academic projects require collaborative development, clean coding practices, and test-driven designs.",
+    "summary_title": "// Profile Summary",
+    "summary_role_label": "Title",
+    "summary_role_value": "Software Engineer & DevOps Engineer",
+    "summary_studies_label": "Studies",
+    "summary_studies_value": "Ostfalia University of Applied Sciences",
+    "summary_work_label": "Current Work",
+    "summary_work_value": "GGU-Software (Germany)",
+    "summary_focus_label": "Focus Areas",
+    "summary_focus_value": "Full-Stack Development, CI/CD, Containerization, Release Automation",
+    "philosophy_title": "// Core Philosophy",
+    "philosophy_quote": "Continuous testing and automated pipelines allow teams to focus on design and architecture, reducing the fear of delivery day and manual mistakes."
   },
   "experience": {
     "page_title": "Professional Timeline",
@@ -72,7 +115,9 @@
     "ggu_task_4": "Supporting Azure-based server infrastructures and Docker container environments.",
     "ggu_task_5": "Investigating build breaks, script failures, and deployment issues to guarantee delivery uptime.",
     "edu_title": "Ostfalia Computer Science Student",
-    "edu_details": " ostfalia University of Applied Sciences — 5th Semester"
+    "edu_details": " ostfalia University of Applied Sciences — 5th Semester",
+    "study_focus": "// Study Focus",
+    "responsibilities": "// Responsibilities & Focus Areas"
   },
   "projects": {
     "page_title": "Engineering Projects",
@@ -88,6 +133,13 @@
     "details_btn": "View Details",
     "more_projects_title": "Other Repositories",
     "more_projects_desc": "For more utility tools, academic task submissions, and scripting challenges, check out my active repositories directly on GitHub.",
+    "back_btn": "Back to Projects",
+    "location_label": "Location",
+    "location_value": "Germany / Web",
+    "overview_title": "// Project Overview",
+    "features_title": "// Implemented Capabilities & Features",
+    "tech_title": "// Technologies & Libraries Used",
+    "attribution_title": "Educational Attribution Notice",
     "darsio": {
       "name": "Darsio",
       "category": "SaaS Platform",
@@ -170,6 +222,7 @@
     "location_label": "Location",
     "status_label": "Status",
     "status_value": "Open to professional discussion and collaborative projects",
+    "location_value": "Ostfalia / Braunschweig / Lower Saxony, Germany",
     "form_name": "Full Name",
     "form_email": "Email Address",
     "form_subject": "Subject",
@@ -192,7 +245,8 @@
     "heading_contact": "2. Contact Form Submissions",
     "body_contact": "Information sent via the contact form (name, email, subject, message) is forwarded to the designated site email for communication purposes. This data is never shared with third parties or sold for commercial objectives.",
     "heading_rights": "3. Your Rights",
-    "body_rights": "You maintain the right to ask for a copy of any personal data you have submitted to us, or request its deletion at any time by reaching out via the contact form."
+    "body_rights": "You maintain the right to ask for a copy of any personal data you have submitted to us, or request its deletion at any time by reaching out via the contact form.",
+    "last_updated": "Last updated:"
   },
   "impressum": {
     "page_title": "Legal Notice / Impressum",

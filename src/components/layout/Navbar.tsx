@@ -81,26 +81,26 @@ export const Navbar: React.FC = () => {
             <Link 
               href="/" 
               className="flex items-center select-none"
-              aria-label="METAWIE Home"
+              aria-label={t("a11y.home_link")}
             >
               <Image
                 src="/logo-with-name.png"
                 alt="METAWIE Logo"
                 width={122}
                 height={36}
-                className="h-9 w-auto object-contain dark:invert dark:hue-rotate-180"
+                className="w-[122px] h-auto object-contain dark:invert dark:hue-rotate-180"
                 priority
               />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6" aria-label="Desktop Navigation">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-6" aria-label={t("a11y.desktop_nav")}>
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-brand ${
+                className={`text-sm font-medium whitespace-nowrap transition-colors hover:text-brand ${
                   isActive(link.href)
                     ? "text-brand font-semibold"
                     : "text-text-muted"
@@ -113,12 +113,12 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Controls & Actions */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-3 xl:gap-4">
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg border border-border-main bg-bg-card text-text-muted hover:text-brand hover:border-brand transition-all cursor-pointer"
-              aria-label={themeMounted && theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              aria-label={themeMounted && theme === "dark" ? t("a11y.theme_light") : t("a11y.theme_dark")}
             >
               {themeMounted && theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
             </button>
@@ -128,7 +128,7 @@ export const Navbar: React.FC = () => {
               <button
                 onClick={() => setLangDropdownOpen(!langDropdownOpen)}
                 className="flex items-center gap-1.5 p-2 rounded-lg border border-border-main bg-bg-card text-text-muted hover:text-brand hover:border-brand transition-all cursor-pointer text-sm font-semibold"
-                aria-label="Change Language"
+                aria-label={t("a11y.change_language")}
                 aria-expanded={langDropdownOpen}
               >
                 <Globe size={18} />
@@ -164,7 +164,7 @@ export const Navbar: React.FC = () => {
               download="Eslam_Metawie_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-brand-fg hover:bg-brand-hover transition-all cursor-pointer font-sans"
+              className="flex items-center gap-2 whitespace-nowrap rounded-lg bg-brand px-3 xl:px-4 py-2 text-sm font-semibold text-brand-fg hover:bg-brand-hover transition-all cursor-pointer font-sans"
             >
               <Download size={16} />
               <span>{t("common.cv_download")}</span>
@@ -172,12 +172,12 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center gap-3 md:hidden">
+          <div className="flex items-center gap-3 lg:hidden">
             {/* Theme Toggle (Mobile Header) */}
             <button
               onClick={toggleTheme}
               className="p-1.5 rounded-lg border border-border-main bg-bg-card text-text-muted hover:text-brand transition-all"
-              aria-label="Toggle Theme"
+              aria-label={themeMounted && theme === "dark" ? t("a11y.theme_light") : t("a11y.theme_dark")}
             >
               {themeMounted && theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
             </button>
@@ -189,7 +189,7 @@ export const Navbar: React.FC = () => {
                 changeLanguage(nextLangMap[language] || "en");
               }}
               className="flex items-center gap-1 p-1.5 rounded-lg border border-border-main bg-bg-card text-text-muted hover:text-brand transition-all text-xs font-semibold"
-              aria-label="Switch Language Quick"
+              aria-label={t("a11y.change_language")}
             >
               <Globe size={16} />
               <span>{langMounted ? language.toUpperCase() : "EN"}</span>
@@ -199,7 +199,7 @@ export const Navbar: React.FC = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg text-text-muted hover:text-brand"
               aria-expanded={isOpen}
-              aria-label="Toggle Main Navigation Menu"
+              aria-label={t("a11y.toggle_menu")}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -208,9 +208,9 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Navigation Drawer */}
         {isOpen && (
-          <div className="absolute top-full inset-x-0 z-40 h-[calc(100vh-4rem)] overflow-y-auto bg-bg-main md:hidden animate-fade-in">
+          <div className="absolute top-full inset-x-0 z-40 h-[calc(100vh-4rem)] overflow-y-auto bg-bg-main lg:hidden animate-fade-in">
             <div className="flex flex-col h-[calc(100vh-4rem)] p-6 justify-between">
-              <nav className="flex flex-col gap-6" aria-label="Mobile Navigation">
+              <nav className="flex flex-col gap-6" aria-label={t("a11y.mobile_nav")}>
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}

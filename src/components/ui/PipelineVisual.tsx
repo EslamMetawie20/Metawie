@@ -1,41 +1,44 @@
 "use client";
 
 import React, { useState } from "react";
+import { useLanguage } from "@/i18n/context/LanguageContext";
 import { Code, Cpu, ShieldCheck, Box, Server, CheckCircle2 } from "lucide-react";
 
 export const PipelineVisual: React.FC = () => {
+  const { t } = useLanguage();
   const [activeStep, setActiveStep] = useState<number | null>(null);
 
+  // Stage labels are established technical terms and stay in English in every language.
   const steps = [
     {
       id: 0,
       icon: <Code size={20} />,
       label: "Code",
-      desc: "Clean code practices, Git, Spring Boot & React development",
+      desc: t("pipeline.desc_code"),
     },
     {
       id: 1,
       icon: <Cpu size={20} />,
       label: "Build",
-      desc: "Automated compiler tasks, project packaging, MSBuild & Gradle",
+      desc: t("pipeline.desc_build"),
     },
     {
       id: 2,
       icon: <ShieldCheck size={20} />,
       label: "Test",
-      desc: "JUnit, automated integration tests, coverage verification",
+      desc: t("pipeline.desc_test"),
     },
     {
       id: 3,
       icon: <Box size={20} />,
       label: "Package",
-      desc: "Docker container creations & Chocolatey package publishing",
+      desc: t("pipeline.desc_package"),
     },
     {
       id: 4,
       icon: <Server size={20} />,
       label: "Deploy",
-      desc: "Azure virtual servers, environment monitoring, IIS/Kubernetes updates",
+      desc: t("pipeline.desc_deploy"),
     },
   ];
 
@@ -43,16 +46,16 @@ export const PipelineVisual: React.FC = () => {
     <div className="w-full rounded-xl border border-border-main bg-bg-card p-6 shadow-sm">
       <div className="flex items-center justify-between mb-6">
         <h3 className="font-mono text-sm font-semibold tracking-wider text-brand uppercase">
-          {"// Automated Delivery Flow"}
+          {t("pipeline.flow_title")}
         </h3>
         <div className="flex items-center gap-1.5 text-xs text-success font-semibold">
           <CheckCircle2 size={14} />
-          <span>Pipeline Stable</span>
+          <span>{t("pipeline.stable")}</span>
         </div>
       </div>
 
-      {/* SVG Pipeline Line */}
-      <div className="relative flex flex-col md:flex-row justify-between items-center gap-8 py-4">
+      {/* SVG Pipeline Line — always LTR so the stage order stays Code -> Deploy in RTL locales */}
+      <div dir="ltr" className="relative flex flex-col md:flex-row justify-between items-center gap-8 py-4">
         {/* Connection line (Desktop only) */}
         <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-border-main -translate-y-1/2 hidden md:block z-0" />
         
@@ -106,7 +109,7 @@ export const PipelineVisual: React.FC = () => {
         {activeStep !== null ? (
           <div>
             <span className="font-mono text-xs font-bold text-brand uppercase tracking-wider">
-              {steps[activeStep].label} Phase:
+              {t("pipeline.phase_label").replace("{label}", steps[activeStep].label)}
             </span>
             <p className="text-sm text-fg-main mt-1">
               {steps[activeStep].desc}
@@ -114,7 +117,7 @@ export const PipelineVisual: React.FC = () => {
           </div>
         ) : (
           <div className="flex items-center justify-center h-full text-xs font-semibold text-text-muted font-mono py-2">
-            Hover over a node to inspect the automation lifecycle
+            {t("pipeline.hover_hint")}
           </div>
         )}
       </div>

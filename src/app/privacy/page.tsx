@@ -41,7 +41,7 @@ export default function Privacy() {
         </div>
 
         <div className="border-t border-border-main/60 pt-6 text-xs font-mono">
-          Last updated: 2026-07-19
+          {t("privacy.last_updated")} <span dir="ltr" className="inline-block">2026-07-19</span>
         </div>
       </div>
     </div>

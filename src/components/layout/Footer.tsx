@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg border border-border-main bg-bg-main text-text-muted hover:text-brand hover:border-brand transition-all"
-              aria-label="GitHub Profile"
+              aria-label={t("a11y.github_profile")}
             >
               <Github size={18} />
             </a>
@@ -47,7 +47,7 @@ export const Footer: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg border border-border-main bg-bg-main text-text-muted hover:text-brand hover:border-brand transition-all"
-              aria-label="LinkedIn Profile"
+              aria-label={t("a11y.linkedin_profile")}
             >
               <Linkedin size={18} />
             </a>

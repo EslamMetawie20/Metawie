@@ -99,7 +99,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="font-mono text-xs font-bold uppercase tracking-widest text-brand mb-2">
-              {"// Executive Introduction"}
+              {t("home.intro_eyebrow")}
             </h2>
             <h3 className="text-3xl font-extrabold tracking-tight text-fg-main sm:text-4xl mb-6">
               {t("home.intro_title")}
@@ -162,13 +162,13 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-5">
               <h2 className="font-mono text-xs font-bold uppercase tracking-widest text-brand mb-2">
-                {"// Automation Pipelines"}
+                {t("home.pipeline_eyebrow")}
               </h2>
               <h3 className="text-3xl font-extrabold tracking-tight text-fg-main sm:text-4xl mb-6">
-                Reliable Delivery Infrastructure
+                {t("home.pipeline_title")}
               </h3>
               <p className="text-sm text-text-muted leading-relaxed">
-                Release cycles should never rely on memory or repetitive manual sequences. I build pipelines that compile code, execute checks, package installers, and trigger staging updates in a structured, observable path.
+                {t("home.pipeline_desc")}
               </p>
             </div>
             <div className="lg:col-span-7">
@@ -184,7 +184,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-12">
             <div>
               <h2 className="font-mono text-xs font-bold uppercase tracking-widest text-brand mb-2">
-                {"// Portfolio Excerpts"}
+                {t("home.projects_eyebrow")}
               </h2>
               <h3 className="text-3xl font-extrabold tracking-tight text-fg-main sm:text-4xl">
                 {t("home.projects_heading")}
@@ -239,7 +239,7 @@ export default function Home() {
                     ))}
                     {project.technologies.length > 3 && (
                       <span className="font-mono text-[9px] text-text-muted pl-1">
-                        +{project.technologies.length - 3} more
+                        +{project.technologies.length - 3} {t("home.more_tech")}
                       </span>
                     )}
                   </div>
@@ -317,10 +317,10 @@ export default function Home() {
       <section className="border-t border-border-main bg-brand text-brand-fg py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-4">
           <h3 className="text-2xl font-black md:text-3xl font-sans">
-            Need reliable software pipelines or custom development?
+            {t("home.banner_title")}
           </h3>
           <p className="text-sm text-brand-fg/80 max-w-xl leading-relaxed">
-            Let&apos;s build a repeatable and robust release infrastructure. Open to exchange ideas and collaborate.
+            {t("home.banner_desc")}
           </p>
           <Link
             href="/contact"

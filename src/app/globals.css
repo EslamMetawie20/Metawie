@@ -105,7 +105,9 @@ body {
 
 /* Utility for card hover engineering aesthetic */
 .tech-card-hover {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-property: transform, border-color, box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
 .tech-card-hover:hover {
   transform: translateY(-2px);

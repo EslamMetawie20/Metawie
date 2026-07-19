@@ -136,15 +136,15 @@ export default function Contact() {
                 <MapPin size={16} className="text-text-muted shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-fg-main block mb-0.5">{t("contact.location_label")}</span>
-                  <span className="text-text-muted">Ostfalia / Braunschweig / Lower Saxony, Germany</span>
+                  <span className="text-text-muted">{t("contact.location_value")}</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-3 border-t border-border-main/60 pt-4">
                 <Mail size={16} className="text-text-muted shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-fg-main block mb-0.5">Email</span>
-                  <span className="text-text-muted select-all">e.metawie@ggu-software.com</span>
+                  <span className="font-bold text-fg-main block mb-0.5">{t("common.email_label")}</span>
+                  <span className="text-text-muted select-all inline-block" dir="ltr">e.metawie@ggu-software.com</span>
                 </div>
               </div>
 

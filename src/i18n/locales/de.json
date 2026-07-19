@@ -8,7 +8,20 @@
     "cv_not_available": "Die Lebenslauf-Datei wird derzeit aktualisiert. Bitte kontaktieren Sie mich direkt über das Kontaktformular!",
     "status_current": "Studierender im 5. Semester an der Ostfalia Hochschule & Software- / DevOps-Engineer bei GGU-Software",
     "back_to_home": "Zur Startseite",
-    "loading": "Wird geladen..."
+    "loading": "Wird geladen...",
+    "email_label": "E-Mail",
+    "portrait_alt": "Generatives Code-Porträt von Eslam Metawie"
+  },
+  "a11y": {
+    "theme_dark": "Zum dunklen Modus wechseln",
+    "theme_light": "Zum hellen Modus wechseln",
+    "change_language": "Sprache ändern",
+    "toggle_menu": "Navigationsmenü umschalten",
+    "home_link": "METAWIE Startseite",
+    "desktop_nav": "Hauptnavigation",
+    "mobile_nav": "Mobile Navigation",
+    "github_profile": "GitHub-Profil",
+    "linkedin_profile": "LinkedIn-Profil"
   },
   "nav": {
     "home": "Startseite",
@@ -44,7 +57,26 @@
     "cta_github_button": "Auf GitHub folgen",
     "cta_linkedin_title": "Professionelles Netzwerk",
     "cta_linkedin_desc": "Lassen Sie uns auf LinkedIn vernetzen. Ich bin jederzeit offen für den Austausch über Softwarearchitektur, DevOps-Pipelines und digitale Produkte.",
-    "cta_linkedin_button": "Auf LinkedIn vernetzen"
+    "cta_linkedin_button": "Auf LinkedIn vernetzen",
+    "intro_eyebrow": "// Kurzvorstellung",
+    "pipeline_eyebrow": "// Automatisierte Pipelines",
+    "pipeline_title": "Zuverlässige Release-Infrastruktur",
+    "pipeline_desc": "Release-Zyklen sollten sich nie auf Gedächtnis oder wiederkehrende manuelle Abläufe stützen. Ich baue Pipelines, die Code kompilieren, Prüfungen ausführen, Installer paketieren und Staging-Updates in einem strukturierten, nachvollziehbaren Ablauf anstoßen.",
+    "projects_eyebrow": "// Portfolio-Auszüge",
+    "more_tech": "weitere",
+    "banner_title": "Sie benötigen zuverlässige Software-Pipelines oder individuelle Entwicklung?",
+    "banner_desc": "Lassen Sie uns eine wiederholbare und robuste Release-Infrastruktur aufbauen. Ich bin offen für Austausch und Zusammenarbeit."
+  },
+  "pipeline": {
+    "flow_title": "// Automatisierter Delivery-Flow",
+    "stable": "Pipeline stabil",
+    "desc_code": "Clean-Code-Praktiken, Git, Entwicklung mit Spring Boot & React",
+    "desc_build": "Automatisierte Compiler-Tasks, Projekt-Paketierung, MSBuild & Gradle",
+    "desc_test": "JUnit, automatisierte Integrationstests, Coverage-Prüfung",
+    "desc_package": "Erstellung von Docker-Containern & Veröffentlichung von Chocolatey-Paketen",
+    "desc_deploy": "Virtuelle Azure-Server, Umgebungs-Monitoring, IIS-/Kubernetes-Updates",
+    "phase_label": "{label}-Phase:",
+    "hover_hint": "Bewegen Sie den Mauszeiger über einen Schritt, um Details anzuzeigen"
   },
   "about": {
     "page_title": "Über Eslam Metawie",
@@ -57,7 +89,18 @@
     "edu_degree": "Bachelor of Science in Computer Science",
     "edu_uni": "Ostfalia Hochschule für angewandte Wissenschaften",
     "edu_stage": "Aktuell im 5. Fachsemester (Bachelor Informatik)",
-    "edu_desc": "Schwerpunkte: Software-Engineering, Algorithmen, Datenbanken, Netzwerke und verteilte Systeme. Die akademischen Projekte erfordern Teamarbeit, saubere Code-Strukturen und testgetriebene Entwicklung."
+    "edu_desc": "Schwerpunkte: Software-Engineering, Algorithmen, Datenbanken, Netzwerke und verteilte Systeme. Die akademischen Projekte erfordern Teamarbeit, saubere Code-Strukturen und testgetriebene Entwicklung.",
+    "summary_title": "// Profilübersicht",
+    "summary_role_label": "Titel",
+    "summary_role_value": "Software-Engineer & DevOps-Engineer",
+    "summary_studies_label": "Studium",
+    "summary_studies_value": "Ostfalia Hochschule für angewandte Wissenschaften",
+    "summary_work_label": "Aktuelle Tätigkeit",
+    "summary_work_value": "GGU-Software (Deutschland)",
+    "summary_focus_label": "Schwerpunkte",
+    "summary_focus_value": "Full-Stack-Entwicklung, CI/CD, Containerisierung, Release-Automatisierung",
+    "philosophy_title": "// Grundprinzip",
+    "philosophy_quote": "Kontinuierliches Testen und automatisierte Pipelines ermöglichen es Teams, sich auf Design und Architektur zu konzentrieren – und nehmen die Angst vor dem Release-Tag und manuellen Fehlern."
   },
   "experience": {
     "page_title": "Beruflicher Werdegang",
@@ -72,7 +115,9 @@
     "ggu_task_4": "Unterstützung von Azure-basierten Server-Infrastrukturen und Docker-Container-Umgebungen.",
     "ggu_task_5": "Fehlersuche bei fehlgeschlagenen Builds und Bereitstellungen zur Sicherung der Release-Bereitschaft.",
     "edu_title": "Informatik-Student",
-    "edu_details": "Ostfalia Hochschule für angewandte Wissenschaften — 5. Semester"
+    "edu_details": "Ostfalia Hochschule für angewandte Wissenschaften — 5. Semester",
+    "study_focus": "// Studienschwerpunkte",
+    "responsibilities": "// Aufgaben & Schwerpunkte"
   },
   "projects": {
     "page_title": "Projekte",
@@ -88,6 +133,13 @@
     "details_btn": "Details ansehen",
     "more_projects_title": "Weitere Repositories",
     "more_projects_desc": "Für kleinere Tools, Skripte und akademische Arbeiten besuchen Sie gerne meine Repositories direkt auf GitHub.",
+    "back_btn": "Zurück zu den Projekten",
+    "location_label": "Standort",
+    "location_value": "Deutschland / Web",
+    "overview_title": "// Projektübersicht",
+    "features_title": "// Umgesetzte Funktionen & Features",
+    "tech_title": "// Eingesetzte Technologien & Bibliotheken",
+    "attribution_title": "Hinweis zur Quellenangabe (Lernprojekt)",
     "darsio": {
       "name": "Darsio",
       "category": "SaaS-Plattform",
@@ -170,6 +222,7 @@
     "location_label": "Standort",
     "status_label": "Status",
     "status_value": "Offen für fachlichen Austausch und spannende Projekte",
+    "location_value": "Ostfalia / Braunschweig / Niedersachsen, Deutschland",
     "form_name": "Name",
     "form_email": "E-Mail-Adresse",
     "form_subject": "Betreff",
@@ -192,7 +245,8 @@
     "heading_contact": "2. Kontaktformular",
     "body_contact": "Die im Kontaktformular eingegebenen Daten (Name, E-Mail, Betreff, Nachricht) werden zur Beantwortung der Anfrage weitergeleitet. Es erfolgt keine Weitergabe oder ein Verkauf dieser Daten an Dritte.",
     "heading_rights": "3. Ihre Rechte",
-    "body_rights": "Sie haben das Recht, jederzeit Auskunft über Ihre bei uns gespeicherten Daten zu verlangen oder deren Löschung zu beantragen. Nutzen Sie dazu einfach das Kontaktformular."
+    "body_rights": "Sie haben das Recht, jederzeit Auskunft über Ihre bei uns gespeicherten Daten zu verlangen oder deren Löschung zu beantragen. Nutzen Sie dazu einfach das Kontaktformular.",
+    "last_updated": "Zuletzt aktualisiert:"
   },
   "impressum": {
     "page_title": "Impressum",

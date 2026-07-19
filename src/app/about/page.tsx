@@ -75,35 +75,35 @@ export default function About() {
           {/* Context box */}
           <div className="rounded-xl border border-border-main bg-bg-card p-6 bg-grid-pattern">
             <h3 className="font-mono text-xs font-bold text-brand uppercase tracking-wider mb-4">
-              {"// Profile Summary"}
+              {t("about.summary_title")}
             </h3>
             <ul className="flex flex-col gap-4 text-xs font-medium text-text-muted">
               <li className="flex items-start gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand mt-1.5 shrink-0" />
                 <div>
-                  <span className="text-fg-main font-bold block mb-0.5">Title</span>
-                  <span>Software Engineer & DevOps Engineer</span>
+                  <span className="text-fg-main font-bold block mb-0.5">{t("about.summary_role_label")}</span>
+                  <span>{t("about.summary_role_value")}</span>
                 </div>
               </li>
               <li className="flex items-start gap-2 border-t border-border-main/60 pt-3">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand mt-1.5 shrink-0" />
                 <div>
-                  <span className="text-fg-main font-bold block mb-0.5">Studies</span>
-                  <span>Ostfalia University of Applied Sciences</span>
+                  <span className="text-fg-main font-bold block mb-0.5">{t("about.summary_studies_label")}</span>
+                  <span>{t("about.summary_studies_value")}</span>
                 </div>
               </li>
               <li className="flex items-start gap-2 border-t border-border-main/60 pt-3">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand mt-1.5 shrink-0" />
                 <div>
-                  <span className="text-fg-main font-bold block mb-0.5">Current Work</span>
-                  <span>GGU-Software (Germany)</span>
+                  <span className="text-fg-main font-bold block mb-0.5">{t("about.summary_work_label")}</span>
+                  <span>{t("about.summary_work_value")}</span>
                 </div>
               </li>
               <li className="flex items-start gap-2 border-t border-border-main/60 pt-3">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand mt-1.5 shrink-0" />
                 <div>
-                  <span className="text-fg-main font-bold block mb-0.5">Focus Areas</span>
-                  <span>Full-Stack Development, CI/CD, Containerization, Release Automation</span>
+                  <span className="text-fg-main font-bold block mb-0.5">{t("about.summary_focus_label")}</span>
+                  <span>{t("about.summary_focus_value")}</span>
                 </div>
               </li>
             </ul>
@@ -112,10 +112,10 @@ export default function About() {
           {/* Quick learning card */}
           <div className="rounded-xl border border-border-main bg-bg-card p-6">
             <h3 className="font-mono text-xs font-bold text-brand uppercase tracking-wider mb-3">
-              {"// Core Philosophy"}
+              {t("about.philosophy_title")}
             </h3>
             <p className="text-xs text-text-muted leading-relaxed">
-              &quot;Continuous testing and automated pipelines allow teams to focus on design and architecture, reducing the fear of delivery day and manual mistakes.&quot;
+              &quot;{t("about.philosophy_quote")}&quot;
             </p>
           </div>
         </div>

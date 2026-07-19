@@ -65,7 +65,7 @@ export default function Experience() {
               {/* Responsibilities / Tasks */}
               <div>
                 <h4 className="font-mono text-[10px] font-bold text-brand uppercase tracking-wider mb-3">
-                  {item.isEducation ? "// Study Focus" : "// Responsibilities & Focus Areas"}
+                  {item.isEducation ? t("experience.study_focus") : t("experience.responsibilities")}
                 </h4>
                 <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {item.tasksKeys.map((taskKey, index) => (

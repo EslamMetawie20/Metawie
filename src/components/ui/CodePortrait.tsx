@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useTheme } from "@/context/ThemeContext";
-import { portraitMatrix } from "@/data/portraitMatrix";
+import { useLanguage } from "@/i18n/context/LanguageContext";
 
 // A long string of actual code/keywords used to render the portrait
 const CODE_STREAM = [
@@ -32,96 +32,198 @@ const CODE_STREAM = [
   "console.log('METAWIE: Software & DevOps Engineering Portfolio');"
 ].join(" ");
 
+interface CellStyle {
+  color: string;
+  pulseColor?: string;
+  alpha: number;
+  bold: boolean;
+  glow?: string;
+}
+
+// Same brightness -> style thresholds as the original span-based renderer.
+// Dark theme: high brightness = visible text; light theme: low brightness = visible text.
+function getCellStyle(brightness: number, isDark: boolean): CellStyle {
+  if (isDark) {
+    if (brightness > 0.7) {
+      return { alpha: 1, bold: true, color: "#dee2e6", pulseColor: "#f8f9fa", glow: "rgba(248, 249, 250, 0.4)" };
+    } else if (brightness > 0.5) {
+      return { alpha: 0.9, bold: false, color: "#e5e7eb", pulseColor: "#ffffff" };
+    } else if (brightness > 0.35) {
+      return { alpha: 0.5, bold: false, color: "#9ca3af" };
+    } else if (brightness > 0.22) {
+      return { alpha: 0.25, bold: false, color: "#6b7280" };
+    }
+    return { alpha: 0.06, bold: false, color: "#4b5563" };
+  }
+  if (brightness < 0.3) {
+    return { alpha: 1, bold: true, color: "#495057", pulseColor: "#212529", glow: "rgba(33, 37, 41, 0.15)" };
+  } else if (brightness < 0.5) {
+    return { alpha: 0.9, bold: false, color: "#1f2937", pulseColor: "#000000" };
+  } else if (brightness < 0.65) {
+    return { alpha: 0.5, bold: false, color: "#4b5563" };
+  } else if (brightness < 0.78) {
+    return { alpha: 0.25, bold: false, color: "#9ca3af" };
+  }
+  return { alpha: 0.06, bold: false, color: "#d1d5db" };
+}
+
+const MONO_FONT = 'ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace';
+
+function hexToRgb(hex: string): [number, number, number] {
+  const n = parseInt(hex.slice(1), 16);
+  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+}
+
+function mixColor(a: string, b: string, p: number): string {
+  const [ar, ag, ab] = hexToRgb(a);
+  const [br, bg, bb] = hexToRgb(b);
+  return `rgb(${Math.round(ar + (br - ar) * p)}, ${Math.round(ag + (bg - ag) * p)}, ${Math.round(ab + (bb - ab) * p)})`;
+}
+
 export const CodePortrait: React.FC = () => {
   const { theme, mounted: themeMounted } = useTheme();
-  const [pulseIndices, setPulseIndices] = useState<Set<number>>(new Set());
+  const { t } = useLanguage();
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const isDark = themeMounted && theme === "dark";
 
-  // Gently pulse a small random set of characters (keywords)
   useEffect(() => {
-    const interval = setInterval(() => {
-      const newPulse = new Set<number>();
-      // Randomly pick ~25 indices to pulse
-      const totalChars = portraitMatrix.length * portraitMatrix[0].length;
-      for (let i = 0; i < 35; i++) {
-        newPulse.add(Math.floor(Math.random() * totalChars));
-      }
-      setPulseIndices(newPulse);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-  const getCharStyle = (brightness: number, index: number) => {
-    const isPulsing = pulseIndices.has(index);
-    
-    if (isDark) {
-      // Dark Theme: high brightness = visible text (white/blue), low brightness = dark/transparent
-      if (brightness > 0.7) {
-        return {
-          opacity: 1,
-          fontWeight: "700" as const,
-          color: isPulsing ? "#f8f9fa" : "#dee2e6", // Pulse to Bright Snow
-          textShadow: "0 0 4px rgba(248, 249, 250, 0.4)"
-        };
-      } else if (brightness > 0.5) {
-        return {
-          opacity: 0.9,
-          fontWeight: "500" as const,
-          color: isPulsing ? "#ffffff" : "#e5e7eb"
-        };
-      } else if (brightness > 0.35) {
-        return {
-          opacity: 0.5,
-          color: "#9ca3af"
-        };
-      } else if (brightness > 0.22) {
-        return {
-          opacity: 0.25,
-          color: "#6b7280"
-        };
-      } else {
-        return {
-          opacity: 0.06,
-          color: "#4b5563"
-        };
+    let disposed = false;
+    let matrix: number[][] | null = null;
+    let cellW = 0;
+    let cellH = 0;
+    let cssWidth = 0;
+    let cssHeight = 0;
+    let dpr = 1;
+    let rafId = 0;
+    let intervalId: ReturnType<typeof setInterval> | undefined;
+    let inView = true;
+
+    const base = document.createElement("canvas");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const drawChar = (ctx: CanvasRenderingContext2D, x: number, y: number, color?: string) => {
+      if (!matrix) return;
+      const style = getCellStyle(matrix[y][x], isDark);
+      const idx = y * matrix[0].length + x;
+      ctx.globalAlpha = style.alpha;
+      ctx.fillStyle = color ?? style.color;
+      ctx.font = `${style.bold ? "700 " : ""}${cellH}px ${MONO_FONT}`;
+      if (style.glow) {
+        ctx.shadowColor = style.glow;
+        ctx.shadowBlur = 3;
       }
-    } else {
-      // Light Theme: low brightness (shadows, hair) = visible text (dark/blue), high brightness = transparent
-      if (brightness < 0.3) {
-        return {
-          opacity: 1,
-          fontWeight: "700" as const,
-          color: isPulsing ? "#212529" : "#495057", // Pulse to Shadow Grey
-          textShadow: "0 0 2px rgba(33, 37, 41, 0.15)"
-        };
-      } else if (brightness < 0.5) {
-        return {
-          opacity: 0.9,
-          fontWeight: "500" as const,
-          color: isPulsing ? "#000000" : "#1f2937"
-        };
-      } else if (brightness < 0.65) {
-        return {
-          opacity: 0.5,
-          color: "#4b5563"
-        };
-      } else if (brightness < 0.78) {
-        return {
-          opacity: 0.25,
-          color: "#9ca3af"
-        };
-      } else {
-        return {
-          opacity: 0.06,
-          color: "#d1d5db"
-        };
+      ctx.fillText(CODE_STREAM[idx % CODE_STREAM.length], x * cellW, y * cellH);
+      ctx.shadowBlur = 0;
+    };
+
+    const drawAll = () => {
+      if (!matrix) return;
+      const ctx = canvas.getContext("2d");
+      const baseCtx = base.getContext("2d");
+      if (!ctx || !baseCtx) return;
+      const cols = matrix[0].length;
+      const rows = matrix.length;
+      cssWidth = canvas.clientWidth;
+      if (!cssWidth) return;
+      // Cell geometry mirrors the old span grid: line-height 1, tight tracking.
+      cellW = cssWidth / cols;
+      cellH = cellW / 0.55;
+      cssHeight = rows * cellH;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      base.width = Math.round(cssWidth * dpr);
+      base.height = Math.round(cssHeight * dpr);
+      canvas.width = base.width;
+      canvas.height = base.height;
+      canvas.style.height = `${cssHeight}px`;
+
+      baseCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      baseCtx.clearRect(0, 0, cssWidth, cssHeight);
+      baseCtx.textBaseline = "top";
+      for (let y = 0; y < rows; y++) {
+        for (let x = 0; x < cols; x++) {
+          drawChar(baseCtx, x, y);
+        }
       }
-    }
-  };
+      baseCtx.globalAlpha = 1;
+
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(base, 0, 0);
+    };
+
+    // Gently pulse a small random set of bright characters, fading in and out.
+    const startPulse = () => {
+      if (reduceMotion || intervalId) return;
+      intervalId = setInterval(() => {
+        if (!matrix || !inView || document.hidden) return;
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+        const cols = matrix[0].length;
+        const rows = matrix.length;
+        const cells: { x: number; y: number; base: string; pulse: string }[] = [];
+        for (let i = 0; i < 35; i++) {
+          const x = Math.floor(Math.random() * cols);
+          const y = Math.floor(Math.random() * rows);
+          const style = getCellStyle(matrix[y][x], isDark);
+          if (style.pulseColor) {
+            cells.push({ x, y, base: style.color, pulse: style.pulseColor });
+          }
+        }
+        if (!cells.length) return;
+        const started = performance.now();
+        const DURATION = 1000;
+        cancelAnimationFrame(rafId);
+        const step = (now: number) => {
+          if (disposed || !matrix) return;
+          const t = Math.min((now - started) / DURATION, 1);
+          // Ease in then out: peak pulse color at t = 0.5
+          const p = 1 - Math.abs(t * 2 - 1);
+          ctx.setTransform(1, 0, 0, 1, 0, 0);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(base, 0, 0);
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          ctx.textBaseline = "top";
+          for (const c of cells) {
+            drawChar(ctx, c.x, c.y, mixColor(c.base, c.pulse, p));
+          }
+          ctx.globalAlpha = 1;
+          if (t < 1) rafId = requestAnimationFrame(step);
+        };
+        rafId = requestAnimationFrame(step);
+      }, 2000);
+    };
+
+    // Lazy-load the matrix data so it stays out of the route's main chunk
+    import("@/data/portraitMatrix").then(({ portraitMatrix }) => {
+      if (disposed) return;
+      matrix = portraitMatrix;
+      drawAll();
+      startPulse();
+    });
+
+    const ro = new ResizeObserver(() => drawAll());
+    ro.observe(canvas);
+
+    const io = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+    });
+    io.observe(canvas);
+
+    return () => {
+      disposed = true;
+      ro.disconnect();
+      io.disconnect();
+      if (intervalId) clearInterval(intervalId);
+      cancelAnimationFrame(rafId);
+    };
+  }, [isDark]);
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-border-main bg-bg-card p-4 shadow-xl select-all group">
+    <div className="relative w-full overflow-hidden rounded-2xl border border-border-main bg-bg-card p-4 shadow-xl group">
       {/* Decorative details */}
       <div className="absolute top-2 left-2 flex gap-1 z-10">
         <span className="h-1.5 w-1.5 rounded-full bg-red-400" />
@@ -132,39 +234,17 @@ export const CodePortrait: React.FC = () => {
         MET_PORTRAIT_GEN_v1.0
       </div>
 
-      {/* Grid container */}
-      <div 
-        className="flex flex-col items-center justify-center bg-bg-main/20 p-2 rounded-xl border border-border-main/60 overflow-x-auto min-h-[300px] sm:min-h-[360px]"
+      {/* Canvas container */}
+      <div
+        className="flex flex-col items-center justify-center bg-bg-main/20 p-2 rounded-xl border border-border-main/60 min-h-[300px] sm:min-h-[360px]"
         dir="ltr"
       >
-        <pre className="font-mono text-[3.6px] xs:text-[4.2px] sm:text-[5px] md:text-[7.2px] lg:text-[8px] leading-[1.0] tracking-[-0.05em] select-all whitespace-pre text-center mx-auto transition-all duration-300">
-          {portraitMatrix.map((row, y) => {
-            const rowChars: React.ReactNode[] = [];
-            
-            for (let x = 0; x < row.length; x++) {
-              const pixelIndex = y * row.length + x;
-              const char = CODE_STREAM[pixelIndex % CODE_STREAM.length];
-              const brightness = row[x];
-              const style = getCharStyle(brightness, pixelIndex);
-              
-              rowChars.push(
-                <span
-                  key={x}
-                  style={style}
-                  className="transition-colors duration-1000"
-                >
-                  {char}
-                </span>
-              );
-            }
-            
-            return (
-              <div key={y} className="flex justify-center leading-none">
-                {rowChars}
-              </div>
-            );
-          })}
-        </pre>
+        <canvas
+          ref={canvasRef}
+          className="block w-full"
+          role="img"
+          aria-label={t("common.portrait_alt")}
+        />
       </div>
     </div>
   );

@@ -38,8 +38,8 @@ export default function ProjectDetail({ params }: PageProps) {
         href="/projects"
         className="inline-flex items-center gap-1.5 text-xs font-semibold text-text-muted hover:text-brand transition-colors mb-8 group"
       >
-        <ArrowLeft size={14} className="transition-transform group-hover:-translate-x-1" />
-        <span>Back to Projects</span>
+        <ArrowLeft size={14} className="transition-transform group-hover:-translate-x-1 rtl:rotate-180 rtl:group-hover:translate-x-1" />
+        <span>{t("projects.back_btn")}</span>
       </Link>
 
       {/* Main Container */}
@@ -102,10 +102,10 @@ export default function ProjectDetail({ params }: PageProps) {
           </div>
           <div>
             <span className="font-mono text-[9px] font-bold text-text-muted uppercase tracking-widest block mb-1">
-              Location
+              {t("projects.location_label")}
             </span>
             <span className="text-fg-main font-semibold leading-relaxed">
-              Germany / Web
+              {t("projects.location_value")}
             </span>
           </div>
         </div>
@@ -113,7 +113,7 @@ export default function ProjectDetail({ params }: PageProps) {
         {/* Details Copy */}
         <div className="py-6">
           <h2 className="font-mono text-[10px] font-bold text-brand uppercase tracking-wider mb-3">
-            {"// Project Overview"}
+            {t("projects.overview_title")}
           </h2>
           <p className="text-sm text-text-muted leading-relaxed">
             {t(project.descKey)}
@@ -122,10 +122,10 @@ export default function ProjectDetail({ params }: PageProps) {
 
         {/* Dynamic Attribution Block (IBM fork code project only) */}
         {project.attributionKey && (
-          <div className="my-6 rounded-lg bg-bg-main border-l-4 border-yellow-500 p-4 flex gap-3 items-start">
+          <div className="my-6 rounded-lg bg-bg-main border-l-4 rtl:border-l-0 rtl:border-r-4 border-yellow-500 p-4 flex gap-3 items-start">
             <AlertTriangle className="text-yellow-600 dark:text-yellow-400 shrink-0 mt-0.5" size={18} />
             <div className="text-xs text-text-muted leading-relaxed">
-              <span className="font-bold text-fg-main block mb-1">Educational Attribution Notice</span>
+              <span className="font-bold text-fg-main block mb-1">{t("projects.attribution_title")}</span>
               {t(project.attributionKey)}
             </div>
           </div>
@@ -134,7 +134,7 @@ export default function ProjectDetail({ params }: PageProps) {
         {/* Key Capabilities / Features */}
         <div className="py-6 border-t border-border-main/60">
           <h2 className="font-mono text-[10px] font-bold text-brand uppercase tracking-wider mb-4">
-            {"// Implemented Capabilities & Features"}
+            {t("projects.features_title")}
           </h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {featureIndices.map((idx) => {
@@ -158,7 +158,7 @@ export default function ProjectDetail({ params }: PageProps) {
         {/* Technologies Grid */}
         <div className="py-6 border-t border-border-main/60">
           <h2 className="font-mono text-[10px] font-bold text-brand uppercase tracking-wider mb-4">
-            {"// Technologies & Libraries Used"}
+            {t("projects.tech_title")}
           </h2>
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
