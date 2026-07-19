@@ -33,8 +33,8 @@
   },
   "hero": {
     "title": "Software-Engineer & DevOps-Engineer",
-    "subtitle": "Entwicklung zuverlässiger Software, automatisierter Pipelines und moderner digitaler Produkte",
-    "description": "Ich verbinde mein Informatikstudium an der Ostfalia Hochschule für angewandte Wissenschaften mit praktischer Berufserfahrung bei GGU-Software. Meine Schwerpunkte liegen in der Anwendungsentwicklung, CI/CD-Pipelines, Testautomatisierung, Containerisierung und Azure-Cloud-Infrastruktur.",
+    "subtitle_line1": "Informatik • Ostfalia Hochschule (5. Semester)",
+    "subtitle_line2": "Software Engineering & DevOps • GGU-Software",
     "explore_cta": "Meine Arbeiten ansehen",
     "contact_cta": "Kontakt aufnehmen"
   },

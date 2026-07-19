@@ -20,15 +20,10 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-grid-pattern py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12 lg:items-center">
             
             {/* Left Content */}
-            <div className="lg:col-span-7 flex flex-col items-start gap-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/5 px-3 py-1 font-mono text-xs font-semibold text-brand">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand animate-pulse" />
-                {t("common.status_current")}
-              </div>
-
+            <div className="lg:col-span-7 flex flex-col items-start gap-6 order-2 lg:order-1">
               <h1 className="text-4xl font-extrabold tracking-tight text-fg-main sm:text-5xl lg:text-6xl font-sans leading-none">
                 {t("common.full_name")}
                 <span className="block text-brand mt-2 text-3xl sm:text-4xl lg:text-5xl font-bold font-sans">
@@ -36,26 +31,23 @@ export default function Home() {
                 </span>
               </h1>
 
-              <p className="text-lg font-semibold text-fg-main leading-relaxed tracking-wide">
-                {t("hero.subtitle")}
-              </p>
-
-              <p className="text-sm text-text-muted leading-relaxed max-w-2xl">
-                {t("hero.description")}
-              </p>
+              <div className="text-base sm:text-lg font-medium text-text-muted leading-relaxed tracking-wide flex flex-col gap-1">
+                <div>{t("hero.subtitle_line1")}</div>
+                <div>{t("hero.subtitle_line2")}</div>
+              </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap gap-4 w-full sm:w-auto">
+              <div className="grid grid-cols-1 min-[340px]:grid-cols-2 gap-3 w-full sm:flex sm:w-auto">
                 <Link
                   href="/projects"
-                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-brand-fg hover:bg-brand-hover transition-all cursor-pointer font-sans"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-brand px-3 sm:px-6 py-3 text-sm font-semibold text-brand-fg hover:bg-brand-hover transition-all cursor-pointer font-sans"
                 >
                   <span>{t("hero.explore_cta")}</span>
                   <ArrowRight size={16} />
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-border-main bg-bg-card px-6 py-3 text-sm font-semibold text-fg-main hover:border-brand hover:text-brand transition-all cursor-pointer font-sans"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-border-main bg-bg-card px-3 sm:px-6 py-3 text-sm font-semibold text-fg-main hover:border-brand hover:text-brand transition-all cursor-pointer font-sans"
                 >
                   <span>{t("hero.contact_cta")}</span>
                 </Link>
@@ -86,8 +78,10 @@ export default function Home() {
             </div>
 
             {/* Right Profile Code Portrait */}
-            <div className="lg:col-span-5 flex justify-center w-full max-w-md lg:max-w-none">
-              <CodePortrait />
+            <div className="lg:col-span-5 flex justify-center w-full order-1 lg:order-2">
+              <div className="w-[75vw] max-w-[280px] sm:max-w-[320px] lg:w-full lg:max-w-none">
+                <CodePortrait />
+              </div>
             </div>
 
           </div>

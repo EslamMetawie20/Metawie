@@ -55,53 +55,61 @@ export const PipelineVisual: React.FC = () => {
       </div>
 
       {/* SVG Pipeline Line — always LTR so the stage order stays Code -> Deploy in RTL locales */}
-      <div dir="ltr" className="relative flex flex-col md:flex-row justify-between items-center gap-8 py-4">
-        {/* Connection line (Desktop only) */}
-        <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-border-main -translate-y-1/2 hidden md:block z-0" />
-        
-        {/* Animated active progress connection line (Desktop only) */}
-        {activeStep !== null && (
-          <div 
-            className="absolute top-1/2 left-0 h-0.5 bg-brand -translate-y-1/2 hidden md:block z-0 transition-all duration-500 ease-out" 
-            style={{ width: `${(activeStep / (steps.length - 1)) * 100}%` }}
-          />
-        )}
-
-        {steps.map((step) => {
-          const isActive = activeStep !== null && activeStep >= step.id;
-          const isCurrent = activeStep === step.id;
-
-          return (
-            <div 
-              key={step.id} 
-              className="relative z-10 flex flex-col items-center group cursor-pointer"
-              onMouseEnter={() => setActiveStep(step.id)}
-              onMouseLeave={() => setActiveStep(null)}
-            >
-              {/* Node Circle */}
+      <div 
+        dir="ltr" 
+        className="w-full overflow-x-auto overflow-y-hidden pb-2 scrollbar-thin [-webkit-overflow-scrolling:touch]"
+      >
+        <div className="relative min-w-[320px] md:min-w-0 w-full py-4">
+          {/* Connection line track */}
+          <div className="absolute top-4 left-8 right-8 md:left-12 md:right-12 h-12 z-0 pointer-events-none">
+            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-border-main -translate-y-1/2" />
+            {activeStep !== null && (
               <div 
-                className={`flex h-12 w-12 items-center justify-center rounded-full border-2 bg-bg-card transition-all duration-300 ${
-                  isCurrent 
-                    ? "border-brand text-brand scale-110 shadow-[0_0_15px_var(--selection-bg)]"
-                    : isActive 
-                      ? "border-brand text-brand" 
-                      : "border-border-main text-text-muted group-hover:border-brand group-hover:text-brand"
-                }`}
-              >
-                {step.icon}
-              </div>
+                className="absolute top-1/2 left-0 h-0.5 bg-brand -translate-y-1/2 transition-all duration-500 ease-out" 
+                style={{ width: `${(activeStep / (steps.length - 1)) * 100}%` }}
+              />
+            )}
+          </div>
 
-              {/* Node Label */}
-              <span 
-                className={`mt-2 font-mono text-xs font-bold uppercase transition-colors duration-300 ${
-                  isActive ? "text-brand" : "text-fg-main group-hover:text-brand"
-                }`}
-              >
-                {step.label}
-              </span>
-            </div>
-          );
-        })}
+          {/* Steps container */}
+          <div className="relative z-10 flex flex-row justify-between items-start w-full">
+            {steps.map((step) => {
+              const isActive = activeStep !== null && activeStep >= step.id;
+              const isCurrent = activeStep === step.id;
+
+              return (
+                <div 
+                  key={step.id} 
+                  className="relative z-10 flex flex-col items-center group cursor-pointer w-16 md:w-24 flex-shrink-0"
+                  onMouseEnter={() => setActiveStep(step.id)}
+                  onMouseLeave={() => setActiveStep(null)}
+                >
+                {/* Node Circle */}
+                <div 
+                  className={`flex h-12 w-12 items-center justify-center rounded-full border-2 bg-bg-card transition-all duration-300 ${
+                    isCurrent 
+                      ? "border-brand text-brand scale-110 shadow-[0_0_15px_var(--selection-bg)]"
+                      : isActive 
+                        ? "border-brand text-brand" 
+                        : "border-border-main text-text-muted group-hover:border-brand group-hover:text-brand"
+                  }`}
+                >
+                  {step.icon}
+                </div>
+
+                {/* Node Label */}
+                <span 
+                  className={`mt-2 font-mono text-xs font-bold uppercase transition-colors duration-300 ${
+                    isActive ? "text-brand" : "text-fg-main group-hover:text-brand"
+                  }`}
+                >
+                  {step.label}
+                </span>
+              </div>
+            );
+          })}
+          </div>
+        </div>
       </div>
 
       {/* Dynamic Detail Card */}

@@ -33,8 +33,8 @@
   },
   "hero": {
     "title": "Software Engineer & DevOps Engineer",
-    "subtitle": "Building Reliable Software, Automated Delivery Pipelines, and Modern Digital Products",
-    "description": "I combine Computer Science studies at Ostfalia University of Applied Sciences with professional software engineering experience at GGU-Software. I specialize in development, CI/CD pipelines, automated testing, containerized environments, and Azure cloud infrastructure.",
+    "subtitle_line1": "Computer Science • Ostfalia University (5th Semester)",
+    "subtitle_line2": "Software Engineering & DevOps • GGU-Software",
     "explore_cta": "Explore My Work",
     "contact_cta": "Contact Me"
   },

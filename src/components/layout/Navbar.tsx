@@ -57,10 +57,10 @@ export const Navbar: React.FC = () => {
     { href: "/contact", label: t("nav.contact") },
   ];
 
-  const languagesList: { code: Language; label: string }[] = [
-    { code: "en", label: "EN" },
-    { code: "de", label: "DE" },
-    { code: "ar", label: "AR" },
+  const languagesList: { code: Language; label: string; flag: string }[] = [
+    { code: "en", label: "EN", flag: "🇬🇧" },
+    { code: "de", label: "DE", flag: "🇩🇪" },
+    { code: "ar", label: "AR", flag: "🇸🇦" },
   ];
 
 
@@ -131,7 +131,9 @@ export const Navbar: React.FC = () => {
                 aria-label={t("a11y.change_language")}
                 aria-expanded={langDropdownOpen}
               >
-                <Globe size={18} />
+                <span className="text-base leading-none">
+                  {langMounted ? languagesList.find((l) => l.code === language)?.flag : "🇬🇧"}
+                </span>
                 <span>{langMounted ? language.toUpperCase() : "EN"}</span>
               </button>
               {langDropdownOpen && (
@@ -151,7 +153,10 @@ export const Navbar: React.FC = () => {
                         langMounted && language === lang.code ? "text-brand bg-brand/5" : "text-text-muted"
                       }`}
                     >
-                      {lang.label}
+                      <div className="flex items-center justify-center gap-2">
+                        <span className="text-base leading-none">{lang.flag}</span>
+                        <span>{lang.label}</span>
+                      </div>
                     </button>
                   ))}
                 </div>
@@ -191,7 +196,9 @@ export const Navbar: React.FC = () => {
               className="flex items-center gap-1 p-1.5 rounded-lg border border-border-main bg-bg-card text-text-muted hover:text-brand transition-all text-xs font-semibold"
               aria-label={t("a11y.change_language")}
             >
-              <Globe size={16} />
+              <span className="text-sm leading-none">
+                {langMounted ? languagesList.find((l) => l.code === language)?.flag : "🇬🇧"}
+              </span>
               <span>{langMounted ? language.toUpperCase() : "EN"}</span>
             </button>
 
