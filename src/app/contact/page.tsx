@@ -80,19 +80,39 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validate()) return;
+
+    // Honeypot: hidden checkbox that only bots fill in (Web3Forms discards those)
+    const botcheck = new FormData(e.currentTarget).get("botcheck") === "on";
 
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
-    // Simulation of form processing (e.g. Formspree/Web3Forms/Next.js API route)
-    // Developers can wire this up using process.env.NEXT_PUBLIC_FORM_ENDPOINT
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulating network latency
-      
-      console.log("Form successfully submitted:", formData);
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          from_name: "METAWIE Portfolio",
+          botcheck,
+        }),
+      });
+
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Submission failed");
+      }
+
       setSubmitStatus("success");
       setFormData({
         name: "",
@@ -184,7 +204,17 @@ export default function Contact() {
         {/* Right column: Form */}
         <div className="lg:col-span-7">
           <form onSubmit={handleSubmit} className="rounded-xl border border-border-main bg-bg-card p-6 md:p-8 flex flex-col gap-5 shadow-sm">
-            
+
+            {/* Honeypot field for spam protection — must stay invisible to humans */}
+            <input
+              type="checkbox"
+              name="botcheck"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="hidden"
+            />
+
             {/* Status alerts */}
             {submitStatus === "success" && (
               <div className="rounded-lg bg-emerald-500/10 border border-emerald-500/20 p-4 flex gap-3 text-xs text-emerald-800 dark:text-emerald-300">
