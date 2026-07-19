@@ -59,7 +59,7 @@ export const projectsData: Project[] = [
       "Integration Testing"
     ],
     liveUrl: "https://darsio.org/en",
-    image: "/images/darsio.png",
+    image: "/images/darsio.jpg",
     featuresKey: "projects.darsio.features"
   },
   {
@@ -78,7 +78,7 @@ export const projectsData: Project[] = [
       "Responsive Layout"
     ],
     liveUrl: "https://bedaya.pages.dev",
-    image: "/images/bedaya.png",
+    image: "/images/bedaya.jpg",
     featuresKey: "projects.bedaya.features"
   },
   {
@@ -118,7 +118,7 @@ export const projectsData: Project[] = [
       "Automated Testing"
     ],
     repoUrl: "https://github.com/EslamMetawie20/wtecc-CICD_PracticeCode",
-    image: "/images/cicd-practice.png",
+    image: "/images/cicd-practice.jpg",
     featuresKey: "projects.cicd.features",
     attributionKey: "projects.cicd.attribution"
   }

@@ -88,11 +88,26 @@ export default function Projects() {
             className="flex flex-col rounded-xl border border-border-main bg-bg-card overflow-hidden tech-card-hover"
           >
             {/* Upper Frame */}
-            <div className="relative h-48 border-b border-border-main bg-bg-main p-6 bg-grid-pattern flex items-center justify-center">
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl border-2 border-brand/20 bg-bg-card text-brand shadow-sm">
-                {getProjectIcon(project.id)}
-              </div>
-              <div className="absolute top-4 right-4 rounded bg-brand/5 border border-brand/20 px-2 py-0.5 font-mono text-[10px] font-bold text-brand">
+            <div className="relative h-48 border-b border-border-main bg-bg-main p-6 bg-grid-pattern flex items-center justify-center overflow-hidden">
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={t(project.nameKey)}
+                  loading="lazy"
+                  width={600}
+                  height={192}
+                  className={`absolute inset-0 w-full h-full transition-all duration-500 ${
+                    project.id === "cafe-zeitlos"
+                      ? "object-contain object-center bg-bg-card"
+                      : "object-cover object-center hover:scale-105"
+                  }`}
+                />
+              ) : (
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl border-2 border-brand/20 bg-bg-card text-brand shadow-sm z-10">
+                  {getProjectIcon(project.id)}
+                </div>
+              )}
+              <div className="absolute top-4 right-4 rounded bg-brand/10 dark:bg-brand/20 backdrop-blur-md border border-brand/25 px-2 py-0.5 font-mono text-[10px] font-bold text-brand z-10 shadow-sm">
                 {t(project.categoryKey)}
               </div>
             </div>

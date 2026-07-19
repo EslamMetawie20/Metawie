@@ -204,11 +204,26 @@ export default function Home() {
                 className="flex flex-col rounded-xl border border-border-main bg-bg-main overflow-hidden tech-card-hover"
               >
                 {/* Visual Header */}
-                <div className="relative h-44 bg-bg-card border-b border-border-main flex items-center justify-center p-6 bg-grid-pattern">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg border-2 border-brand/20 bg-bg-main text-brand">
-                    <Code2 size={24} />
-                  </div>
-                  <div className="absolute top-2 right-3 rounded bg-brand/5 border border-brand/10 px-2 py-0.5 font-mono text-[9px] font-semibold text-brand">
+                <div className="relative h-44 bg-bg-card border-b border-border-main flex items-center justify-center p-6 bg-grid-pattern overflow-hidden">
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={t(project.nameKey)}
+                      loading="lazy"
+                      width={400}
+                      height={176}
+                      className={`absolute inset-0 w-full h-full transition-all duration-500 ${
+                        project.id === "cafe-zeitlos"
+                          ? "object-contain object-center bg-bg-card"
+                          : "object-cover object-center hover:scale-105"
+                      }`}
+                    />
+                  ) : (
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg border-2 border-brand/20 bg-bg-main text-brand z-10">
+                      <Code2 size={24} />
+                    </div>
+                  )}
+                  <div className="absolute top-2 right-3 rounded bg-brand/10 dark:bg-brand/20 backdrop-blur-md border border-brand/25 px-2 py-0.5 font-mono text-[9px] font-semibold text-brand z-10 shadow-sm">
                     {t(project.categoryKey)}
                   </div>
                 </div>
