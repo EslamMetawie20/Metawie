@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Make the `dark:` variant follow the .dark class set by the theme toggle
+   instead of the OS prefers-color-scheme default. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   /* User Palette - Light Mode */
   --background: #f8f9fa; /* Bright Snow */
@@ -10,6 +14,7 @@
   --muted: #6c757d; /* Slate Grey */
   --muted-foreground: #495057; /* Iron Grey */
   --brand: #212529; /* Shadow Grey */
+  --brand-foreground: #ffffff; /* Text/icons placed on brand surfaces */
   --brand-hover: #495057; /* Iron Grey */
   --grid-color: rgba(108, 117, 125, 0.04); /* Slate Grey grid lines */
   --success: #10b981;
@@ -27,6 +32,7 @@
   --muted: #adb5bd; /* Pale Slate */
   --muted-foreground: #dee2e6; /* Alabaster Grey */
   --brand: #f8f9fa; /* Bright Snow */
+  --brand-foreground: #212529; /* Text/icons placed on brand surfaces */
   --brand-hover: #dee2e6; /* Alabaster Grey */
   --grid-color: rgba(233, 236, 239, 0.04); /* Platinum grid lines */
   --success: #34d399;
@@ -43,6 +49,7 @@
   --color-text-muted: var(--muted);
   --color-text-muted-fg: var(--muted-foreground);
   --color-brand: var(--brand);
+  --color-brand-fg: var(--brand-foreground);
   --color-brand-hover: var(--brand-hover);
   --color-grid: var(--grid-color);
   --color-success: var(--success);
@@ -88,8 +95,7 @@ body {
 /* Clean keyboard focus indicator */
 *:focus-visible {
   outline: 2px solid var(--brand);
-  outline-offset: 4px;
-  border-radius: 4px;
+  outline-offset: 2px;
 }
 
 /* RTL Specific Tweaks */

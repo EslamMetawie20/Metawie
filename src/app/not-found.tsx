@@ -28,7 +28,7 @@ export default function NotFound() {
 
       <Link
         href="/"
-        className="mt-8 inline-flex items-center gap-2 rounded-lg bg-brand px-6 py-3 text-xs font-bold text-white hover:bg-brand-hover transition-all cursor-pointer font-sans"
+        className="mt-8 inline-flex items-center gap-2 rounded-lg bg-brand px-6 py-3 text-xs font-bold text-brand-fg hover:bg-brand-hover transition-all cursor-pointer font-sans"
       >
         <Home size={14} />
         <span>{t("not_found.btn")}</span>

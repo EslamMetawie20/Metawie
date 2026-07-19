@@ -41,9 +41,9 @@ export default function Skills() {
       case "professional":
         return "bg-brand/5 border-brand/20 text-brand";
       case "project":
-        return "bg-emerald-500/5 border-emerald-500/20 text-emerald-600 dark:text-emerald-400";
+        return "bg-emerald-500/10 border-emerald-500/30 text-emerald-700 dark:text-emerald-400";
       case "academic":
-        return "bg-amber-500/5 border-amber-500/20 text-amber-600 dark:text-amber-400";
+        return "bg-amber-500/10 border-amber-500/30 text-amber-700 dark:text-amber-400";
       case "developing":
         return "bg-text-muted/5 border-border-main text-text-muted";
       default:
@@ -85,7 +85,7 @@ export default function Skills() {
               {group.skills.map((skill, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between gap-4 p-2.5 rounded-lg border border-border-main/40 bg-bg-main/20 hover:border-brand/40 transition-colors"
+                  className="flex items-center justify-between gap-4 p-2.5 rounded-lg border border-border-main/60 bg-bg-main/40 hover:border-brand/50 transition-colors"
                 >
                   <span className="text-xs font-bold text-fg-main">
                     {skill.name}

@@ -79,7 +79,7 @@ export const PipelineVisual: React.FC = () => {
               <div 
                 className={`flex h-12 w-12 items-center justify-center rounded-full border-2 bg-bg-card transition-all duration-300 ${
                   isCurrent 
-                    ? "border-brand text-brand scale-110 shadow-[0_0_15px_rgba(27,73,224,0.2)]" 
+                    ? "border-brand text-brand scale-110 shadow-[0_0_15px_var(--selection-bg)]"
                     : isActive 
                       ? "border-brand text-brand" 
                       : "border-border-main text-text-muted group-hover:border-brand group-hover:text-brand"

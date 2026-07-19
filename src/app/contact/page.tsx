@@ -227,7 +227,7 @@ export default function Contact() {
                   aria-describedby={errors.name ? "name-error" : undefined}
                 />
                 {errors.name && (
-                  <span id="name-error" className="text-[10px] text-rose-500 font-semibold mt-0.5">
+                  <span id="name-error" className="text-[10px] text-rose-600 dark:text-rose-400 font-semibold mt-0.5">
                     {errors.name}
                   </span>
                 )}
@@ -252,7 +252,7 @@ export default function Contact() {
                   aria-describedby={errors.email ? "email-error" : undefined}
                 />
                 {errors.email && (
-                  <span id="email-error" className="text-[10px] text-rose-500 font-semibold mt-0.5">
+                  <span id="email-error" className="text-[10px] text-rose-600 dark:text-rose-400 font-semibold mt-0.5">
                     {errors.email}
                   </span>
                 )}
@@ -278,7 +278,7 @@ export default function Contact() {
                 aria-describedby={errors.subject ? "subject-error" : undefined}
               />
               {errors.subject && (
-                <span id="subject-error" className="text-[10px] text-rose-500 font-semibold mt-0.5">
+                <span id="subject-error" className="text-[10px] text-rose-600 dark:text-rose-400 font-semibold mt-0.5">
                   {errors.subject}
                 </span>
               )}
@@ -303,7 +303,7 @@ export default function Contact() {
                 aria-describedby={errors.message ? "message-error" : undefined}
               />
               {errors.message && (
-                <span id="message-error" className="text-[10px] text-rose-500 font-semibold mt-0.5">
+                <span id="message-error" className="text-[10px] text-rose-600 dark:text-rose-400 font-semibold mt-0.5">
                   {errors.message}
                 </span>
               )}
@@ -319,7 +319,7 @@ export default function Contact() {
                   checked={formData.consent}
                   onChange={handleChange}
                   disabled={isSubmitting}
-                  className="mt-1 h-3.5 w-3.5 rounded border-border-main text-brand focus:ring-brand cursor-pointer shrink-0"
+                  className="mt-1 h-3.5 w-3.5 rounded border-border-main accent-brand cursor-pointer shrink-0"
                   aria-invalid={!!errors.consent}
                   aria-describedby={errors.consent ? "consent-error" : undefined}
                 />
@@ -328,7 +328,7 @@ export default function Contact() {
                 </label>
               </div>
               {errors.consent && (
-                <span id="consent-error" className="text-[10px] text-rose-500 font-semibold mt-0.5 pl-6 rtl:pl-0 rtl:pr-6">
+                <span id="consent-error" className="text-[10px] text-rose-600 dark:text-rose-400 font-semibold mt-0.5 pl-6 rtl:pl-0 rtl:pr-6">
                   {errors.consent}
                 </span>
               )}
@@ -338,7 +338,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-brand py-3 text-xs font-semibold text-white hover:bg-brand-hover transition-all cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed"
+              className="mt-2 flex w-full items-center justify-center gap-2 rounded-lg bg-brand py-3 text-xs font-semibold text-brand-fg hover:bg-brand-hover transition-all cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
             >
               <Send size={14} />
               <span>{isSubmitting ? t("contact.form_sending") : t("contact.form_submit")}</span>

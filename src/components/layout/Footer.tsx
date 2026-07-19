@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
                 alt="METAWIE Logo"
                 width={24}
                 height={24}
-                className="h-6 w-6 object-contain dark:invert"
+                className="h-6 w-6 object-contain dark:invert dark:hue-rotate-180"
               />
               <span>METAWIE</span>
             </div>

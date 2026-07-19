@@ -48,7 +48,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-4 w-full sm:w-auto">
                 <Link
                   href="/projects"
-                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-white hover:bg-brand-hover transition-all cursor-pointer font-sans"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-brand px-6 py-3 text-sm font-semibold text-brand-fg hover:bg-brand-hover transition-all cursor-pointer font-sans"
                 >
                   <span>{t("hero.explore_cta")}</span>
                   <ArrowRight size={16} />
@@ -314,17 +314,17 @@ export default function Home() {
       </section>
 
       {/* Global Contact CTA banner */}
-      <section className="border-t border-border-main bg-brand text-white py-12">
+      <section className="border-t border-border-main bg-brand text-brand-fg py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-4">
           <h3 className="text-2xl font-black md:text-3xl font-sans">
             Need reliable software pipelines or custom development?
           </h3>
-          <p className="text-sm text-brand-hover/90 max-w-xl leading-relaxed">
+          <p className="text-sm text-brand-fg/80 max-w-xl leading-relaxed">
             Let&apos;s build a repeatable and robust release infrastructure. Open to exchange ideas and collaborate.
           </p>
           <Link
             href="/contact"
-            className="mt-2 inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 text-sm font-bold text-brand hover:bg-bg-main transition-all font-sans"
+            className="mt-2 inline-flex items-center justify-center rounded-lg bg-bg-main px-6 py-3 text-sm font-bold text-fg-main hover:bg-bg-card transition-all font-sans"
           >
             {t("hero.contact_cta")}
           </Link>

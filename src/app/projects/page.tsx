@@ -56,7 +56,7 @@ export default function Projects() {
           <button
             onClick={() => setFilter("all")}
             className={`rounded-md px-4 py-1.5 text-xs font-semibold transition-all cursor-pointer ${
-              filter === "all" ? "bg-brand text-white" : "text-text-muted hover:text-fg-main"
+              filter === "all" ? "bg-brand text-brand-fg" : "text-text-muted hover:text-fg-main"
             }`}
           >
             {t("projects.filter_all")}
@@ -64,7 +64,7 @@ export default function Projects() {
           <button
             onClick={() => setFilter("saas")}
             className={`rounded-md px-4 py-1.5 text-xs font-semibold transition-all cursor-pointer ${
-              filter === "saas" ? "bg-brand text-white" : "text-text-muted hover:text-fg-main"
+              filter === "saas" ? "bg-brand text-brand-fg" : "text-text-muted hover:text-fg-main"
             }`}
           >
             {t("projects.filter_saas")}
@@ -72,7 +72,7 @@ export default function Projects() {
           <button
             onClick={() => setFilter("devops")}
             className={`rounded-md px-4 py-1.5 text-xs font-semibold transition-all cursor-pointer ${
-              filter === "devops" ? "bg-brand text-white" : "text-text-muted hover:text-fg-main"
+              filter === "devops" ? "bg-brand text-brand-fg" : "text-text-muted hover:text-fg-main"
             }`}
           >
             {t("projects.filter_devops")}
@@ -144,7 +144,7 @@ export default function Projects() {
               <div className="flex items-center gap-4 mt-auto border-t border-border-main/60 pt-4">
                 <Link
                   href={`/projects/${project.id}`}
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-brand px-4 py-2 text-xs font-bold text-white hover:bg-brand-hover transition-all cursor-pointer font-sans"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-brand px-4 py-2 text-xs font-bold text-brand-fg hover:bg-brand-hover transition-all cursor-pointer font-sans"
                 >
                   <span>{t("projects.details_btn")}</span>
                   <ArrowRight size={12} />
@@ -191,7 +191,7 @@ export default function Projects() {
           href="https://github.com/EslamMetawie20"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-lg bg-brand px-4 py-2 text-xs font-semibold text-white hover:bg-brand-hover transition-all"
+          className="inline-flex items-center gap-2 rounded-lg bg-brand px-4 py-2 text-xs font-semibold text-brand-fg hover:bg-brand-hover transition-all"
         >
           <span>{t("home.cta_github_button")}</span>
           <ExternalLink size={12} />

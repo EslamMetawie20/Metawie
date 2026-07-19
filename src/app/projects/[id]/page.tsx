@@ -62,7 +62,7 @@ export default function ProjectDetail({ params }: PageProps) {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-lg bg-brand px-4 py-2 text-xs font-semibold text-white hover:bg-brand-hover transition-all"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-brand px-4 py-2 text-xs font-semibold text-brand-fg hover:bg-brand-hover transition-all"
               >
                 <span>{t("projects.live_btn")}</span>
                 <ExternalLink size={12} />
@@ -123,7 +123,7 @@ export default function ProjectDetail({ params }: PageProps) {
         {/* Dynamic Attribution Block (IBM fork code project only) */}
         {project.attributionKey && (
           <div className="my-6 rounded-lg bg-bg-main border-l-4 border-yellow-500 p-4 flex gap-3 items-start">
-            <AlertTriangle className="text-yellow-600 shrink-0 mt-0.5" size={18} />
+            <AlertTriangle className="text-yellow-600 dark:text-yellow-400 shrink-0 mt-0.5" size={18} />
             <div className="text-xs text-text-muted leading-relaxed">
               <span className="font-bold text-fg-main block mb-1">Educational Attribution Notice</span>
               {t(project.attributionKey)}

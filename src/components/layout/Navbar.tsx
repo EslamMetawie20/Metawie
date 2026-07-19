@@ -91,7 +91,7 @@ export const Navbar: React.FC = () => {
                 alt="METAWIE Logo"
                 width={122}
                 height={36}
-                className="h-9 w-auto object-contain dark:invert"
+                className="h-9 w-auto object-contain dark:invert dark:hue-rotate-180"
                 priority
               />
             </Link>
@@ -164,7 +164,7 @@ export const Navbar: React.FC = () => {
             {/* Download CV */}
             <button
               onClick={handleCvClick}
-              className="flex items-center gap-2 rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-hover transition-all cursor-pointer font-sans"
+              className="flex items-center gap-2 rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-brand-fg hover:bg-brand-hover transition-all cursor-pointer font-sans"
             >
               <Download size={16} />
               <span>{t("common.cv_download")}</span>
@@ -197,7 +197,7 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg text-text-muted hover:text-brand focus:outline-none"
+              className="p-2 rounded-lg text-text-muted hover:text-brand"
               aria-expanded={isOpen}
               aria-label="Toggle Main Navigation Menu"
             >
@@ -234,7 +234,7 @@ export const Navbar: React.FC = () => {
                     setIsOpen(false);
                     handleCvClick(e);
                   }}
-                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand py-3 text-base font-semibold text-white hover:bg-brand-hover transition-all"
+                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand py-3 text-base font-semibold text-brand-fg hover:bg-brand-hover transition-all"
                 >
                   <Download size={18} />
                   <span>{t("common.cv_download")}</span>
@@ -267,7 +267,7 @@ export const Navbar: React.FC = () => {
               <Link
                 href="/contact"
                 onClick={() => setShowCvModal(false)}
-                className="rounded-lg bg-brand px-4 py-2 text-xs font-semibold text-white hover:bg-brand-hover transition-all"
+                className="rounded-lg bg-brand px-4 py-2 text-xs font-semibold text-brand-fg hover:bg-brand-hover transition-all"
               >
                 {t("nav.contact")}
               </Link>
