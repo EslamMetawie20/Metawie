@@ -144,7 +144,7 @@ export default function Contact() {
                 <Mail size={16} className="text-text-muted shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-fg-main block mb-0.5">{t("common.email_label")}</span>
-                  <span className="text-text-muted select-all inline-block" dir="ltr">e.metawie@ggu-software.com</span>
+                  <span className="text-text-muted select-all inline-block" dir="ltr">eslammetawie50@gmail.com</span>
                 </div>
               </div>
 
