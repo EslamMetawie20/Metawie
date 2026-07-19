@@ -100,14 +100,19 @@ export default function Contact() {
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
+    // Special fields (subject, from_name, replyto, botcheck) control the email;
+    // capitalized fields are rendered as clean sections in the email body.
     const payload = {
       access_key: accessKey,
-      name: formData.name,
-      email: formData.email,
-      subject: formData.subject,
-      message: formData.message,
+      subject: `New Portfolio Message — ${formData.subject}`,
       from_name: "METAWIE Portfolio",
+      replyto: formData.email,
       botcheck,
+      Name: formData.name,
+      Email: formData.email,
+      Subject: formData.subject,
+      Message: formData.message,
+      Source: "https://metawie.pages.dev/contact",
     };
 
     // Never log the full access key
