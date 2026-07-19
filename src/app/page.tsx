@@ -201,10 +201,17 @@ export default function Home() {
             {featuredProjects.map((project) => (
               <div
                 key={project.id}
-                className="flex flex-col rounded-xl border border-border-main bg-bg-main overflow-hidden tech-card-hover"
+                className="relative flex flex-col rounded-xl border border-border-main bg-bg-main overflow-hidden tech-card-hover group/card focus-within:ring-2 focus-within:ring-brand/40 focus-within:outline-none"
               >
+                {/* Absolute overlay link for the whole card */}
+                <Link
+                  href={`/projects/${project.id}`}
+                  className="absolute inset-0 z-0 cursor-pointer focus:outline-none"
+                  aria-label={t(project.nameKey)}
+                />
+
                 {/* Visual Header */}
-                <div className="relative h-44 bg-bg-card border-b border-border-main flex items-center justify-center p-6 bg-grid-pattern overflow-hidden">
+                <div className="relative h-44 bg-bg-card border-b border-border-main flex items-center justify-center p-6 bg-grid-pattern overflow-hidden pointer-events-none">
                   {project.image ? (
                     <img
                       src={project.image}
@@ -215,7 +222,7 @@ export default function Home() {
                       className={`absolute inset-0 w-full h-full transition-all duration-500 ${
                         project.id === "cafe-zeitlos"
                           ? "object-contain object-center bg-bg-card"
-                          : "object-cover object-center hover:scale-105"
+                          : "object-cover object-center group-hover/card:scale-105"
                       }`}
                     />
                   ) : (
@@ -229,7 +236,7 @@ export default function Home() {
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 flex flex-col p-6">
+                <div className="flex-1 flex flex-col p-6 pointer-events-none">
                   <h4 className="text-lg font-black text-fg-main mb-2">
                     {t(project.nameKey)}
                   </h4>
@@ -253,13 +260,10 @@ export default function Home() {
                     )}
                   </div>
 
-                  <Link
-                    href={`/projects/${project.id}`}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-brand hover:underline"
-                  >
+                  <span className="inline-flex items-center gap-1 text-xs font-bold text-brand group-hover/card:underline">
                     <span>{t("projects.details_btn")}</span>
                     <ArrowRight size={12} />
-                  </Link>
+                  </span>
                 </div>
               </div>
             ))}

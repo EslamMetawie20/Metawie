@@ -85,10 +85,17 @@ export default function Projects() {
         {filteredProjects.map((project) => (
           <div
             key={project.id}
-            className="flex flex-col rounded-xl border border-border-main bg-bg-card overflow-hidden tech-card-hover"
+            className="relative flex flex-col rounded-xl border border-border-main bg-bg-card overflow-hidden tech-card-hover group/card focus-within:ring-2 focus-within:ring-brand/40 focus-within:outline-none"
           >
+            {/* Absolute overlay link for the whole card */}
+            <Link
+              href={`/projects/${project.id}`}
+              className="absolute inset-0 z-0 cursor-pointer focus:outline-none"
+              aria-label={t(project.nameKey)}
+            />
+
             {/* Upper Frame */}
-            <div className="relative h-48 border-b border-border-main bg-bg-main p-6 bg-grid-pattern flex items-center justify-center overflow-hidden">
+            <div className="relative h-48 border-b border-border-main bg-bg-main p-6 bg-grid-pattern flex items-center justify-center overflow-hidden pointer-events-none">
               {project.image ? (
                 <img
                   src={project.image}
@@ -99,7 +106,7 @@ export default function Projects() {
                   className={`absolute inset-0 w-full h-full transition-all duration-500 ${
                     project.id === "cafe-zeitlos"
                       ? "object-contain object-center bg-bg-card"
-                      : "object-cover object-center hover:scale-105"
+                      : "object-cover object-center group-hover/card:scale-105"
                   }`}
                 />
               ) : (
@@ -114,63 +121,62 @@ export default function Projects() {
 
             {/* Content Body */}
             <div className="flex-1 flex flex-col p-6">
-              <h3 className="text-xl font-black text-fg-main mb-2">
-                {t(project.nameKey)}
-              </h3>
-              <p className="text-xs text-text-muted leading-relaxed mb-6 flex-1">
-                {t(project.shortKey)}
-              </p>
+              <div className="pointer-events-none flex-1 flex flex-col">
+                <h3 className="text-xl font-black text-fg-main mb-2">
+                  {t(project.nameKey)}
+                </h3>
+                <p className="text-xs text-text-muted leading-relaxed mb-6 flex-1">
+                  {t(project.shortKey)}
+                </p>
 
-              {/* Specific metadata list */}
-              <div className="border-t border-border-main/60 py-4 flex flex-col gap-2.5 text-xs">
-                <div className="flex justify-between items-start gap-2">
-                  <span className="font-mono text-[10px] font-bold text-text-muted uppercase tracking-wider">
-                    {t("projects.role_label")}
-                  </span>
-                  <span className="text-fg-main font-semibold text-right">
-                    {t(project.roleKey)}
-                  </span>
-                </div>
-                <div className="flex justify-between items-start gap-2 border-t border-border-main/20 pt-2.5">
-                  <span className="font-mono text-[10px] font-bold text-text-muted uppercase tracking-wider">
-                    {t("projects.status_label")}
-                  </span>
-                  <span className="text-fg-main font-semibold text-right">
-                    {t(project.statusKey)}
-                  </span>
-                </div>
-              </div>
-
-              {/* Technologies */}
-              <div className="border-t border-border-main/60 pt-4 mb-6">
-                <div className="flex flex-wrap gap-1.5">
-                  {project.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded bg-bg-main border border-border-main px-2 py-0.5 font-mono text-[9px] text-text-muted"
-                    >
-                      {tech}
+                {/* Specific metadata list */}
+                <div className="border-t border-border-main/60 py-4 flex flex-col gap-2.5 text-xs">
+                  <div className="flex justify-between items-start gap-2">
+                    <span className="font-mono text-[10px] font-bold text-text-muted uppercase tracking-wider">
+                      {t("projects.role_label")}
                     </span>
-                  ))}
+                    <span className="text-fg-main font-semibold text-right">
+                      {t(project.roleKey)}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-start gap-2 border-t border-border-main/20 pt-2.5">
+                    <span className="font-mono text-[10px] font-bold text-text-muted uppercase tracking-wider">
+                      {t("projects.status_label")}
+                    </span>
+                    <span className="text-fg-main font-semibold text-right">
+                      {t(project.statusKey)}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Technologies */}
+                <div className="border-t border-border-main/60 pt-4 mb-6">
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded bg-bg-main border border-border-main px-2 py-0.5 font-mono text-[9px] text-text-muted"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              {/* Action buttons */}
-              <div className="flex items-center gap-4 mt-auto border-t border-border-main/60 pt-4">
-                <Link
-                  href={`/projects/${project.id}`}
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-brand px-4 py-2 text-xs font-bold text-brand-fg hover:bg-brand-hover transition-all cursor-pointer font-sans"
-                >
+              {/* Action buttons (relative z-10 to overlay click behavior) */}
+              <div className="relative z-10 flex items-center gap-4 mt-auto border-t border-border-main/60 pt-4">
+                <span className="inline-flex items-center gap-1.5 rounded-lg bg-brand px-4 py-2 text-xs font-bold text-brand-fg group-hover/card:bg-brand-hover transition-all cursor-pointer font-sans pointer-events-none">
                   <span>{t("projects.details_btn")}</span>
                   <ArrowRight size={12} />
-                </Link>
+                </span>
 
                 {project.liveUrl && (
                   <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-text-muted hover:text-brand transition-colors"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-text-muted hover:text-brand transition-colors cursor-pointer"
                   >
                     <span>{t("projects.live_btn")}</span>
                     <ExternalLink size={12} />
@@ -182,7 +188,7 @@ export default function Projects() {
                     href={project.repoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-text-muted hover:text-brand transition-colors"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-text-muted hover:text-brand transition-colors cursor-pointer"
                   >
                     <span>{t("projects.code_btn")}</span>
                     <ExternalLink size={12} />
