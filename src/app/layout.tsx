@@ -20,8 +20,8 @@ const ibmPlexArabic = IBM_Plex_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  title: "Eslam Metawie | Software Engineer & DevOps Engineer",
-  description: "Portfolio of Eslam Metawie, a Software Engineer and DevOps Engineer working with modern web applications, CI/CD, automated testing, Docker, Azure, Chocolatey, and software release automation.",
+  title: "METAWIE | Eslam Metawie – Software Engineer & DevOps Engineer",
+  description: "Official portfolio of Eslam Metawie — Software Engineer and DevOps Engineer specializing in Java, Spring Boot, React, DevOps, CI/CD and cloud technologies.",
   keywords: [
     "Eslam Metawie",
     "Metawie Software Engineer",
@@ -35,7 +35,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Eslam Metawie" }],
   creator: "Eslam Metawie",
   publisher: "Eslam Metawie",
-  metadataBase: new URL("https://metawie.pages.dev"), // Fallback base URL for metadata
+  metadataBase: new URL("https://metawie.pages.dev"),
+  alternates: {
+    canonical: "https://metawie.pages.dev",
+  },
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -50,9 +53,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://metawie.pages.dev",
-    title: "Eslam Metawie | Software Engineer & DevOps Engineer",
-    description: "Portfolio of Eslam Metawie, showcasing full-stack applications, automated CI/CD pipelines, and DevOps workflows.",
-    siteName: "METAWIE Portfolio",
+    title: "METAWIE | Eslam Metawie",
+    description: "Official portfolio of Eslam Metawie — Software Engineer and DevOps Engineer specializing in Java, Spring Boot, React, DevOps, CI/CD and cloud technologies.",
+    siteName: "METAWIE",
     images: [
       {
         url: "/og-image.png",
@@ -64,8 +67,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Eslam Metawie | Software Engineer & DevOps Engineer",
-    description: "Portfolio of Eslam Metawie, showcasing full-stack applications, automated CI/CD pipelines, and DevOps workflows.",
+    title: "METAWIE | Eslam Metawie",
+    description: "Official portfolio of Eslam Metawie — Software Engineer and DevOps Engineer specializing in Java, Spring Boot, React, DevOps, CI/CD and cloud technologies.",
     images: ["/og-image.png"],
   },
   robots: {

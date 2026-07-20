@@ -15,8 +15,46 @@ export default function Home() {
   // Pick first 3 projects for the home page showcase
   const featuredProjects = projectsData.slice(0, 3);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfilePage",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "Eslam Metawie",
+          "alternateName": "METAWIE",
+          "url": "https://metawie.pages.dev",
+          "jobTitle": "Software Engineer & DevOps Engineer",
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Ostfalia University of Applied Sciences"
+          },
+          "worksFor": {
+            "@type": "Organization",
+            "name": "GGU-Software"
+          },
+          "sameAs": [
+            "https://github.com/EslamMetawie20",
+            "https://www.linkedin.com/in/eslam-metawie/"
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "name": "METAWIE",
+        "alternateName": "Eslam Metawie Portfolio",
+        "url": "https://metawie.pages.dev"
+      }
+    ]
+  };
+
   return (
     <div className="w-full">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-grid-pattern py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
