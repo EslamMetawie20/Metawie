@@ -30,13 +30,6 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     let initialLang: Language = "en";
     if (storedLang && (storedLang === "en" || storedLang === "de" || storedLang === "ar")) {
       initialLang = storedLang;
-    } else {
-      const browserLang = navigator.language.split("-")[0];
-      if (browserLang === "de") {
-        initialLang = "de";
-      } else if (browserLang === "ar") {
-        initialLang = "ar";
-      }
     }
     const timer = setTimeout(() => {
       setLanguage(initialLang);
