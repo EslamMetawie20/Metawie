@@ -259,6 +259,22 @@
         "Building container images and simulating Kubernetes target updates",
         "Setting up testing dependencies inside Python web apps"
       ]
+    },
+    "arredo": {
+      "name": "ARREDO",
+      "category": "Furniture Factory Management System",
+      "short": "An Arabic-first furniture factory management system with offline-first SQLite sync and financial accounting ledgers.",
+      "role": "Full-Stack Architect & Mobile Developer",
+      "status": "Production Release / Active Deployment",
+      "desc": "ARREDO is a full-stack factory management system built for furniture manufacturing operations. It unifies sales order workflows, a 50-row digital sales notebook with automatic PDF archiving, factory accounting and financial ledgers (cash vault and bank transfer routing), shipment load management, and inventory tracking. The system features an Arabic-first forced RTL React Native mobile application powered by per-tenant offline-first SQLite databases, secure tenant-scoped synchronization with a Java Spring Boot backend, PostgreSQL database hosting on Neon, and automated container deployment on Render.",
+      "features": [
+        "Arabic-first forced RTL mobile application built with React Native, Expo, and TypeScript",
+        "Offline-first architecture featuring per-tenant local SQLite databases and an outbox synchronization engine",
+        "Spring Boot backend with multi-tenant data isolation, JWT authentication, and WebSocket real-time updates",
+        "Factory accounting and financial ledgers with automated transaction routing and audit log reversals",
+        "50-row digital sales sheet engine with automated archiving and Arabic RTL PDF export via OpenPDF & ICU4J",
+        "Inventory management and shipment load sheet tracking with year-scoped reference numbers"
+      ]
     }
   },
   "skills": {

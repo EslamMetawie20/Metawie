@@ -259,6 +259,22 @@
         "Bauen von Container-Images und Simulation von Updates in Kubernetes",
         "Konfiguration von Testumgebungen für Python-Anwendungen"
       ]
+    },
+    "arredo": {
+      "name": "ARREDO",
+      "category": "Möbelfabrik-Managementsystem",
+      "short": "Ein arabischsprachiges Managementsystem für Möbelfabriken mit Offline-First SQLite-Sync und Finanzbuchhaltungs-Ledgern.",
+      "role": "Full-Stack-Architekt & Mobile-Entwickler",
+      "status": "Produktivbetrieb / Aktive Nutzung",
+      "desc": "ARREDO ist ein Full-Stack-Fabrikmanagementsystem für die Abläufe in der Möbelherstellung. Es vereint Verkaufsaufträge, ein digitales 50-Zeilen-Verkaufsbuch mit automatischer PDF-Archivierung, Fabrikbuchhaltung und Finanz-Ledger (Kassentresor- und Banküberweisungs-Routing), Versand-Ladelisten und Inventarverfolgung. Das System bietet eine arabischsprachige RTL-Mobile-App auf Basis von React Native mit mandantenspezifischen Offline-SQLite-Datenbanken, sicherer mandantengeschützter Synchronisation mit einem Java Spring Boot Backend, PostgreSQL-Datenbank auf Neon und Container-Deployment auf Render.",
+      "features": [
+        "Arabischsprachige RTL-Mobile-App entwickelt mit React Native, Expo und TypeScript",
+        "Offline-First-Architektur mit mandantenspezifischen lokalen SQLite-Datenbanken und Outbox-Sync-Engine",
+        "Spring Boot Backend mit Multi-Tenant-Datenisolierung, JWT-Authentifizierung und WebSocket-Echtzeitupdates",
+        "Fabrikbuchhaltung und Finanz-Ledger mit automatischem Transaktions-Routing und Stornierungs-Audits",
+        "Digitales 50-Zeilen-Verkaufsbuch-System mit automatischer Archivierung und arabischem RTL-PDF-Export",
+        "Bestandsführung und Ladelistenverwaltung mit jahresbezogenen Referenznummern"
+      ]
     }
   },
   "skills": {

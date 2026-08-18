@@ -155,6 +155,32 @@ export const projectsData: Project[] = [
     image: "/images/cicd-practice.jpg",
     featuresKey: "projects.cicd.features",
     attributionKey: "projects.cicd.attribution"
+  },
+  {
+    id: "arredo",
+    nameKey: "projects.arredo.name",
+    categoryKey: "projects.arredo.category",
+    shortKey: "projects.arredo.short",
+    descKey: "projects.arredo.desc",
+    roleKey: "projects.arredo.role",
+    statusKey: "projects.arredo.status",
+    technologies: [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Spring Boot",
+      "Java",
+      "PostgreSQL",
+      "SQLite",
+      "Docker",
+      "Neon",
+      "Render",
+      "JWT Auth",
+      "WebSocket"
+    ],
+    repoUrl: "https://github.com/EslamMetawie20/Arredo",
+    image: "/images/arredo.jpg",
+    featuresKey: "projects.arredo.features"
   }
 ];
 

@@ -143,6 +143,13 @@ export default function ProjectDetailClient({ id }: { id: string }) {
               altKey: "projects.cicd.name",
               buttonKey: "projects.code_btn",
             },
+            arredo: {
+              url: "https://github.com/EslamMetawie20/Arredo",
+              embeddable: false,
+              screenshot: "/images/arredo.jpg",
+              altKey: "projects.arredo.name",
+              buttonKey: "projects.code_btn",
+            },
           };
 
           const config = previewConfig[project.id];
